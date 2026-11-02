@@ -167,3 +167,4 @@ LightingData.asset     binary
 *.shader filter=lfs diff=lfs merge=lfs -text
 *.shadergraph filter=lfs diff=lfs merge=lfs -text
 *.cginc filter=lfs diff=lfs merge=lfs -text
+*.html filter=lfs diff=lfs merge=lfs -text
