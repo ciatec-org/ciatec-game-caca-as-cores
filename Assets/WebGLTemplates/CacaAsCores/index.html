@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{{{ PRODUCT_NAME }}}</title>
+    <style>
+      html, body {
+        width: 100%;
+        height: 100%;
+        margin: 0;
+        overflow: hidden;
+      }
+
+      #unity-canvas {
+        display: block;
+        width: 100%;
+        height: 100%;
+        background: {{{ BACKGROUND_COLOR }}};
+      }
+
+      #unity-status {
+        position: fixed;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        margin: 0;
+        padding: 1rem;
+        color: white;
+        background: #222;
+        font: 1rem sans-serif;
+        text-align: center;
+      }
+    </style>
+  </head>
+  <body>
+    <canvas id="unity-canvas" width="{{{ WIDTH }}}" height="{{{ HEIGHT }}}"
+            tabindex="0" aria-label="{{{ PRODUCT_NAME }}}"></canvas>
+    <p id="unity-status" role="status">Carregando…</p>
+    <script>
+      const canvas = document.getElementById("unity-canvas");
+      const status = document.getElementById("unity-status");
+      const buildUrl = "Build";
+      const config = {
+        dataUrl: buildUrl + "/{{{ DATA_FILENAME }}}",
+        frameworkUrl: buildUrl + "/{{{ FRAMEWORK_FILENAME }}}",
+        codeUrl: buildUrl + "/{{{ CODE_FILENAME }}}",
+#if SYMBOLS_FILENAME
+        symbolsUrl: buildUrl + "/{{{ SYMBOLS_FILENAME }}}",
+#endif
+        streamingAssetsUrl: "StreamingAssets",
+        companyName: {{{ JSON.stringify(COMPANY_NAME) }}},
+        productName: {{{ JSON.stringify(PRODUCT_NAME) }}},
+        productVersion: {{{ JSON.stringify(PRODUCT_VERSION) }}},
+        // Keep Unity's render target synchronized with the available CSS area.
+        matchWebGLToCanvasSize: true,
+        devicePixelRatio: 1
+      };
+
+      function showError(error) {
+        console.error(error);
+        status.textContent = "Não foi possível iniciar o jogo. Recarregue a página.";
+        status.setAttribute("role", "alert");
+        status.hidden = false;
+      }
+
+      const loader = document.createElement("script");
+      loader.src = buildUrl + "/{{{ LOADER_FILENAME }}}";
+      loader.onload = () => {
+        createUnityInstance(canvas, config).then(() => {
+          status.hidden = true;
+        }).catch(showError);
+      };
+      loader.onerror = () => showError("Falha ao carregar o loader da build WebGL.");
+      document.body.appendChild(loader);
+    </script>
+  </body>
+</html>
