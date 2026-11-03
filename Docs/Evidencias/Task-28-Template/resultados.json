@@ -1,0 +1,1435 @@
+{
+  "startedAtUTC": "2026-11-02T21:55:28.736Z",
+  "platform": "win32",
+  "osRelease": "10.0.26200",
+  "nodeVersion": "v24.22.1",
+  "playwrightVersion": "1.62.1",
+  "chromeExecutable": "C:/Program Files/Google/Chrome/Application/chrome.exe",
+  "headless": true,
+  "sourceSHA256": "ce968d7e7a4db2f3ac0aca59bc06258f06e9d4ad31b22ca7bfc673695746ff21",
+  "fixtureSHA256": "9ae3a5dbff2601bd5ed8801d65f7acf649748d9f474a8c551219d15125944f55",
+  "symbolsFixtureSHA256": "573e85f6239cb444bef26b864c5251d45901cdade0eb533c7abcdcb270bb30fd",
+  "mockSHA256": "0f05173bba4a42b7706915e355df5f17b9a1b65a33305fcdeed2324530769036",
+  "macroValues": {
+    "PRODUCT_NAME": "Caça às Cores",
+    "BACKGROUND_COLOR": "#231f20",
+    "WIDTH": "960",
+    "HEIGHT": "600",
+    "DATA_FILENAME": "Test.data",
+    "FRAMEWORK_FILENAME": "Test.framework.js",
+    "CODE_FILENAME": "Test.wasm",
+    "LOADER_FILENAME": "Test.loader.js",
+    "SYMBOLS_FILENAME": "Test.symbols.json",
+    "JSON.stringify(COMPANY_NAME)": "\"CIATec\"",
+    "JSON.stringify(PRODUCT_NAME)": "\"Caça às Cores\"",
+    "JSON.stringify(PRODUCT_VERSION)": "\"0.1.0\""
+  },
+  "temporaryDirectory": "<diretorio-temporario-local>",
+  "origin": "http://127.0.0.1:50404",
+  "toleranceCSSPixels": 1,
+  "checks": [
+    {
+      "name": "Fixture: original CSS preserved except background macro",
+      "result": "PASS"
+    },
+    {
+      "name": "loader-pending: canvas covers viewport (tolerance 1 CSS px)",
+      "result": "PASS"
+    },
+    {
+      "name": "loader-pending: no measured excess or scrollbar space",
+      "result": "PASS"
+    },
+    {
+      "name": "Loader: loading status visible and role=status before resolution",
+      "result": "PASS"
+    },
+    {
+      "name": "Loader: entire config passed correctly",
+      "result": "PASS"
+    },
+    {
+      "name": "Loader: actual canvas passed with initial HTML dimensions 960x600",
+      "result": "PASS"
+    },
+    {
+      "name": "fixed-390x844: canvas covers viewport (tolerance 1 CSS px)",
+      "result": "PASS"
+    },
+    {
+      "name": "fixed-390x844: no measured excess or scrollbar space",
+      "result": "PASS"
+    },
+    {
+      "name": "fixed-844x390: canvas covers viewport (tolerance 1 CSS px)",
+      "result": "PASS"
+    },
+    {
+      "name": "fixed-844x390: no measured excess or scrollbar space",
+      "result": "PASS"
+    },
+    {
+      "name": "fixed-1280x720: canvas covers viewport (tolerance 1 CSS px)",
+      "result": "PASS"
+    },
+    {
+      "name": "fixed-1280x720: no measured excess or scrollbar space",
+      "result": "PASS"
+    },
+    {
+      "name": "fixed-1920x1080: canvas covers viewport (tolerance 1 CSS px)",
+      "result": "PASS"
+    },
+    {
+      "name": "fixed-1920x1080: no measured excess or scrollbar space",
+      "result": "PASS"
+    },
+    {
+      "name": "dynamic-1: canvas covers viewport (tolerance 1 CSS px)",
+      "result": "PASS"
+    },
+    {
+      "name": "dynamic-1: no measured excess or scrollbar space",
+      "result": "PASS"
+    },
+    {
+      "name": "dynamic-2: canvas covers viewport (tolerance 1 CSS px)",
+      "result": "PASS"
+    },
+    {
+      "name": "dynamic-2: no measured excess or scrollbar space",
+      "result": "PASS"
+    },
+    {
+      "name": "dynamic-3: canvas covers viewport (tolerance 1 CSS px)",
+      "result": "PASS"
+    },
+    {
+      "name": "dynamic-3: no measured excess or scrollbar space",
+      "result": "PASS"
+    },
+    {
+      "name": "dynamic-4: canvas covers viewport (tolerance 1 CSS px)",
+      "result": "PASS"
+    },
+    {
+      "name": "dynamic-4: no measured excess or scrollbar space",
+      "result": "PASS"
+    },
+    {
+      "name": "dynamic-5: canvas covers viewport (tolerance 1 CSS px)",
+      "result": "PASS"
+    },
+    {
+      "name": "dynamic-5: no measured excess or scrollbar space",
+      "result": "PASS"
+    },
+    {
+      "name": "Dynamic: same document and timeOrigin, one navigation, no reload",
+      "result": "PASS"
+    },
+    {
+      "name": "Dynamic: JavaScript probe advances; one mock initialization; loading stays hidden",
+      "result": "PASS"
+    },
+    {
+      "name": "Mock does not resize internal buffer: remains 960x600 throughout all CSS resizes",
+      "result": "PASS"
+    },
+    {
+      "name": "loader-rejected: canvas covers viewport (tolerance 1 CSS px)",
+      "result": "PASS"
+    },
+    {
+      "name": "loader-rejected: no measured excess or scrollbar space",
+      "result": "PASS"
+    },
+    {
+      "name": "Loader rejection: visible Portuguese error and role=alert",
+      "result": "PASS"
+    },
+    {
+      "name": "Loader rejection: expected error logged",
+      "result": "PASS"
+    },
+    {
+      "name": "loader-network-failure: canvas covers viewport (tolerance 1 CSS px)",
+      "result": "PASS"
+    },
+    {
+      "name": "loader-network-failure: no measured excess or scrollbar space",
+      "result": "PASS"
+    },
+    {
+      "name": "Loader script HTTP 404: original onerror displays alert",
+      "result": "PASS"
+    },
+    {
+      "name": "Loader script HTTP 404: expected diagnostic logged",
+      "result": "PASS"
+    },
+    {
+      "name": "Optional symbols branch: symbolsUrl passed correctly",
+      "result": "PASS"
+    },
+    {
+      "name": "browser-dpr-2: canvas covers viewport (tolerance 1 CSS px)",
+      "result": "PASS"
+    },
+    {
+      "name": "browser-dpr-2: no measured excess or scrollbar space",
+      "result": "PASS"
+    },
+    {
+      "name": "Browser DPR 2: config remains DPR 1 and CSS covers viewport",
+      "result": "PASS"
+    },
+    {
+      "name": "All scenarios: zero unhandled JavaScript exceptions",
+      "result": "PASS"
+    },
+    {
+      "name": "Success, symbols and DPR scenarios: zero console errors/warnings or failed requests",
+      "result": "PASS"
+    },
+    {
+      "name": "No Unity artifacts requested: mock only replaces initialization",
+      "result": "PASS"
+    },
+    {
+      "name": "Production template byte-for-byte unchanged",
+      "result": "PASS"
+    }
+  ],
+  "measurements": [
+    {
+      "label": "loader-pending",
+      "requestedViewport": {
+        "width": 1280,
+        "height": 720
+      },
+      "innerWidth": 1280,
+      "innerHeight": 720,
+      "canvas": {
+        "x": 0,
+        "y": 0,
+        "width": 1280,
+        "height": 720,
+        "right": 1280,
+        "bottom": 720
+      },
+      "canvasCSS": {
+        "width": "1280px",
+        "height": "720px",
+        "display": "block"
+      },
+      "canvasBuffer": [
+        960,
+        600
+      ],
+      "root": {
+        "clientWidth": 1280,
+        "clientHeight": 720,
+        "scrollWidth": 1280,
+        "scrollHeight": 720,
+        "offsetWidth": 1280,
+        "offsetHeight": 720,
+        "rect": {
+          "x": 0,
+          "y": 0,
+          "width": 1280,
+          "height": 720,
+          "top": 0,
+          "right": 1280,
+          "bottom": 720,
+          "left": 0
+        }
+      },
+      "body": {
+        "clientWidth": 1280,
+        "clientHeight": 720,
+        "scrollWidth": 1280,
+        "scrollHeight": 720,
+        "offsetWidth": 1280,
+        "offsetHeight": 720,
+        "rect": {
+          "x": 0,
+          "y": 0,
+          "width": 1280,
+          "height": 720,
+          "top": 0,
+          "right": 1280,
+          "bottom": 720,
+          "left": 0
+        }
+      },
+      "browserDPR": 1,
+      "rootOverflow": "hidden",
+      "bodyOverflow": "hidden",
+      "stable": true,
+      "frames": 3,
+      "documentToken": "c76bfd35-94cf-4e7b-91e7-ff82a6d11d08",
+      "jsProbe": 1,
+      "timeOrigin": 1793656533538.6,
+      "navigationEntries": 1,
+      "mockCalls": 1,
+      "loading": {
+        "hidden": false,
+        "text": "Carregando…",
+        "role": "status"
+      },
+      "noExcess": true,
+      "noScrollbarSpace": true,
+      "result": "PASS",
+      "screenshot": "loader-carregando.png"
+    },
+    {
+      "label": "fixed-390x844",
+      "requestedViewport": {
+        "width": 390,
+        "height": 844
+      },
+      "innerWidth": 390,
+      "innerHeight": 844,
+      "canvas": {
+        "x": 0,
+        "y": 0,
+        "width": 390,
+        "height": 844,
+        "right": 390,
+        "bottom": 844
+      },
+      "canvasCSS": {
+        "width": "390px",
+        "height": "844px",
+        "display": "block"
+      },
+      "canvasBuffer": [
+        960,
+        600
+      ],
+      "root": {
+        "clientWidth": 390,
+        "clientHeight": 844,
+        "scrollWidth": 390,
+        "scrollHeight": 844,
+        "offsetWidth": 390,
+        "offsetHeight": 844,
+        "rect": {
+          "x": 0,
+          "y": 0,
+          "width": 390,
+          "height": 844,
+          "top": 0,
+          "right": 390,
+          "bottom": 844,
+          "left": 0
+        }
+      },
+      "body": {
+        "clientWidth": 390,
+        "clientHeight": 844,
+        "scrollWidth": 390,
+        "scrollHeight": 844,
+        "offsetWidth": 390,
+        "offsetHeight": 844,
+        "rect": {
+          "x": 0,
+          "y": 0,
+          "width": 390,
+          "height": 844,
+          "top": 0,
+          "right": 390,
+          "bottom": 844,
+          "left": 0
+        }
+      },
+      "browserDPR": 1,
+      "rootOverflow": "hidden",
+      "bodyOverflow": "hidden",
+      "stable": true,
+      "frames": 3,
+      "documentToken": "c76bfd35-94cf-4e7b-91e7-ff82a6d11d08",
+      "jsProbe": 2,
+      "timeOrigin": 1793656533538.6,
+      "navigationEntries": 1,
+      "mockCalls": 1,
+      "loading": {
+        "hidden": true,
+        "text": "Carregando…",
+        "role": "status"
+      },
+      "noExcess": true,
+      "noScrollbarSpace": true,
+      "result": "PASS",
+      "screenshot": "viewport-390x844.png"
+    },
+    {
+      "label": "fixed-844x390",
+      "requestedViewport": {
+        "width": 844,
+        "height": 390
+      },
+      "innerWidth": 844,
+      "innerHeight": 390,
+      "canvas": {
+        "x": 0,
+        "y": 0,
+        "width": 844,
+        "height": 390,
+        "right": 844,
+        "bottom": 390
+      },
+      "canvasCSS": {
+        "width": "844px",
+        "height": "390px",
+        "display": "block"
+      },
+      "canvasBuffer": [
+        960,
+        600
+      ],
+      "root": {
+        "clientWidth": 844,
+        "clientHeight": 390,
+        "scrollWidth": 844,
+        "scrollHeight": 390,
+        "offsetWidth": 844,
+        "offsetHeight": 390,
+        "rect": {
+          "x": 0,
+          "y": 0,
+          "width": 844,
+          "height": 390,
+          "top": 0,
+          "right": 844,
+          "bottom": 390,
+          "left": 0
+        }
+      },
+      "body": {
+        "clientWidth": 844,
+        "clientHeight": 390,
+        "scrollWidth": 844,
+        "scrollHeight": 390,
+        "offsetWidth": 844,
+        "offsetHeight": 390,
+        "rect": {
+          "x": 0,
+          "y": 0,
+          "width": 844,
+          "height": 390,
+          "top": 0,
+          "right": 844,
+          "bottom": 390,
+          "left": 0
+        }
+      },
+      "browserDPR": 1,
+      "rootOverflow": "hidden",
+      "bodyOverflow": "hidden",
+      "stable": true,
+      "frames": 3,
+      "documentToken": "c76bfd35-94cf-4e7b-91e7-ff82a6d11d08",
+      "jsProbe": 3,
+      "timeOrigin": 1793656533538.6,
+      "navigationEntries": 1,
+      "mockCalls": 1,
+      "loading": {
+        "hidden": true,
+        "text": "Carregando…",
+        "role": "status"
+      },
+      "noExcess": true,
+      "noScrollbarSpace": true,
+      "result": "PASS",
+      "screenshot": "viewport-844x390.png"
+    },
+    {
+      "label": "fixed-1280x720",
+      "requestedViewport": {
+        "width": 1280,
+        "height": 720
+      },
+      "innerWidth": 1280,
+      "innerHeight": 720,
+      "canvas": {
+        "x": 0,
+        "y": 0,
+        "width": 1280,
+        "height": 720,
+        "right": 1280,
+        "bottom": 720
+      },
+      "canvasCSS": {
+        "width": "1280px",
+        "height": "720px",
+        "display": "block"
+      },
+      "canvasBuffer": [
+        960,
+        600
+      ],
+      "root": {
+        "clientWidth": 1280,
+        "clientHeight": 720,
+        "scrollWidth": 1280,
+        "scrollHeight": 720,
+        "offsetWidth": 1280,
+        "offsetHeight": 720,
+        "rect": {
+          "x": 0,
+          "y": 0,
+          "width": 1280,
+          "height": 720,
+          "top": 0,
+          "right": 1280,
+          "bottom": 720,
+          "left": 0
+        }
+      },
+      "body": {
+        "clientWidth": 1280,
+        "clientHeight": 720,
+        "scrollWidth": 1280,
+        "scrollHeight": 720,
+        "offsetWidth": 1280,
+        "offsetHeight": 720,
+        "rect": {
+          "x": 0,
+          "y": 0,
+          "width": 1280,
+          "height": 720,
+          "top": 0,
+          "right": 1280,
+          "bottom": 720,
+          "left": 0
+        }
+      },
+      "browserDPR": 1,
+      "rootOverflow": "hidden",
+      "bodyOverflow": "hidden",
+      "stable": true,
+      "frames": 3,
+      "documentToken": "c76bfd35-94cf-4e7b-91e7-ff82a6d11d08",
+      "jsProbe": 4,
+      "timeOrigin": 1793656533538.6,
+      "navigationEntries": 1,
+      "mockCalls": 1,
+      "loading": {
+        "hidden": true,
+        "text": "Carregando…",
+        "role": "status"
+      },
+      "noExcess": true,
+      "noScrollbarSpace": true,
+      "result": "PASS",
+      "screenshot": "viewport-1280x720.png"
+    },
+    {
+      "label": "fixed-1920x1080",
+      "requestedViewport": {
+        "width": 1920,
+        "height": 1080
+      },
+      "innerWidth": 1920,
+      "innerHeight": 1080,
+      "canvas": {
+        "x": 0,
+        "y": 0,
+        "width": 1920,
+        "height": 1080,
+        "right": 1920,
+        "bottom": 1080
+      },
+      "canvasCSS": {
+        "width": "1920px",
+        "height": "1080px",
+        "display": "block"
+      },
+      "canvasBuffer": [
+        960,
+        600
+      ],
+      "root": {
+        "clientWidth": 1920,
+        "clientHeight": 1080,
+        "scrollWidth": 1920,
+        "scrollHeight": 1080,
+        "offsetWidth": 1920,
+        "offsetHeight": 1080,
+        "rect": {
+          "x": 0,
+          "y": 0,
+          "width": 1920,
+          "height": 1080,
+          "top": 0,
+          "right": 1920,
+          "bottom": 1080,
+          "left": 0
+        }
+      },
+      "body": {
+        "clientWidth": 1920,
+        "clientHeight": 1080,
+        "scrollWidth": 1920,
+        "scrollHeight": 1080,
+        "offsetWidth": 1920,
+        "offsetHeight": 1080,
+        "rect": {
+          "x": 0,
+          "y": 0,
+          "width": 1920,
+          "height": 1080,
+          "top": 0,
+          "right": 1920,
+          "bottom": 1080,
+          "left": 0
+        }
+      },
+      "browserDPR": 1,
+      "rootOverflow": "hidden",
+      "bodyOverflow": "hidden",
+      "stable": true,
+      "frames": 3,
+      "documentToken": "c76bfd35-94cf-4e7b-91e7-ff82a6d11d08",
+      "jsProbe": 5,
+      "timeOrigin": 1793656533538.6,
+      "navigationEntries": 1,
+      "mockCalls": 1,
+      "loading": {
+        "hidden": true,
+        "text": "Carregando…",
+        "role": "status"
+      },
+      "noExcess": true,
+      "noScrollbarSpace": true,
+      "result": "PASS",
+      "screenshot": "viewport-1920x1080.png"
+    },
+    {
+      "label": "dynamic-1",
+      "requestedViewport": {
+        "width": 1280,
+        "height": 720
+      },
+      "innerWidth": 1280,
+      "innerHeight": 720,
+      "canvas": {
+        "x": 0,
+        "y": 0,
+        "width": 1280,
+        "height": 720,
+        "right": 1280,
+        "bottom": 720
+      },
+      "canvasCSS": {
+        "width": "1280px",
+        "height": "720px",
+        "display": "block"
+      },
+      "canvasBuffer": [
+        960,
+        600
+      ],
+      "root": {
+        "clientWidth": 1280,
+        "clientHeight": 720,
+        "scrollWidth": 1280,
+        "scrollHeight": 720,
+        "offsetWidth": 1280,
+        "offsetHeight": 720,
+        "rect": {
+          "x": 0,
+          "y": 0,
+          "width": 1280,
+          "height": 720,
+          "top": 0,
+          "right": 1280,
+          "bottom": 720,
+          "left": 0
+        }
+      },
+      "body": {
+        "clientWidth": 1280,
+        "clientHeight": 720,
+        "scrollWidth": 1280,
+        "scrollHeight": 720,
+        "offsetWidth": 1280,
+        "offsetHeight": 720,
+        "rect": {
+          "x": 0,
+          "y": 0,
+          "width": 1280,
+          "height": 720,
+          "top": 0,
+          "right": 1280,
+          "bottom": 720,
+          "left": 0
+        }
+      },
+      "browserDPR": 1,
+      "rootOverflow": "hidden",
+      "bodyOverflow": "hidden",
+      "stable": true,
+      "frames": 3,
+      "documentToken": "c76bfd35-94cf-4e7b-91e7-ff82a6d11d08",
+      "jsProbe": 6,
+      "timeOrigin": 1793656533538.6,
+      "navigationEntries": 1,
+      "mockCalls": 1,
+      "loading": {
+        "hidden": true,
+        "text": "Carregando…",
+        "role": "status"
+      },
+      "noExcess": true,
+      "noScrollbarSpace": true,
+      "result": "PASS"
+    },
+    {
+      "label": "dynamic-2",
+      "requestedViewport": {
+        "width": 390,
+        "height": 844
+      },
+      "innerWidth": 390,
+      "innerHeight": 844,
+      "canvas": {
+        "x": 0,
+        "y": 0,
+        "width": 390,
+        "height": 844,
+        "right": 390,
+        "bottom": 844
+      },
+      "canvasCSS": {
+        "width": "390px",
+        "height": "844px",
+        "display": "block"
+      },
+      "canvasBuffer": [
+        960,
+        600
+      ],
+      "root": {
+        "clientWidth": 390,
+        "clientHeight": 844,
+        "scrollWidth": 390,
+        "scrollHeight": 844,
+        "offsetWidth": 390,
+        "offsetHeight": 844,
+        "rect": {
+          "x": 0,
+          "y": 0,
+          "width": 390,
+          "height": 844,
+          "top": 0,
+          "right": 390,
+          "bottom": 844,
+          "left": 0
+        }
+      },
+      "body": {
+        "clientWidth": 390,
+        "clientHeight": 844,
+        "scrollWidth": 390,
+        "scrollHeight": 844,
+        "offsetWidth": 390,
+        "offsetHeight": 844,
+        "rect": {
+          "x": 0,
+          "y": 0,
+          "width": 390,
+          "height": 844,
+          "top": 0,
+          "right": 390,
+          "bottom": 844,
+          "left": 0
+        }
+      },
+      "browserDPR": 1,
+      "rootOverflow": "hidden",
+      "bodyOverflow": "hidden",
+      "stable": true,
+      "frames": 3,
+      "documentToken": "c76bfd35-94cf-4e7b-91e7-ff82a6d11d08",
+      "jsProbe": 7,
+      "timeOrigin": 1793656533538.6,
+      "navigationEntries": 1,
+      "mockCalls": 1,
+      "loading": {
+        "hidden": true,
+        "text": "Carregando…",
+        "role": "status"
+      },
+      "noExcess": true,
+      "noScrollbarSpace": true,
+      "result": "PASS"
+    },
+    {
+      "label": "dynamic-3",
+      "requestedViewport": {
+        "width": 844,
+        "height": 390
+      },
+      "innerWidth": 844,
+      "innerHeight": 390,
+      "canvas": {
+        "x": 0,
+        "y": 0,
+        "width": 844,
+        "height": 390,
+        "right": 844,
+        "bottom": 390
+      },
+      "canvasCSS": {
+        "width": "844px",
+        "height": "390px",
+        "display": "block"
+      },
+      "canvasBuffer": [
+        960,
+        600
+      ],
+      "root": {
+        "clientWidth": 844,
+        "clientHeight": 390,
+        "scrollWidth": 844,
+        "scrollHeight": 390,
+        "offsetWidth": 844,
+        "offsetHeight": 390,
+        "rect": {
+          "x": 0,
+          "y": 0,
+          "width": 844,
+          "height": 390,
+          "top": 0,
+          "right": 844,
+          "bottom": 390,
+          "left": 0
+        }
+      },
+      "body": {
+        "clientWidth": 844,
+        "clientHeight": 390,
+        "scrollWidth": 844,
+        "scrollHeight": 390,
+        "offsetWidth": 844,
+        "offsetHeight": 390,
+        "rect": {
+          "x": 0,
+          "y": 0,
+          "width": 844,
+          "height": 390,
+          "top": 0,
+          "right": 844,
+          "bottom": 390,
+          "left": 0
+        }
+      },
+      "browserDPR": 1,
+      "rootOverflow": "hidden",
+      "bodyOverflow": "hidden",
+      "stable": true,
+      "frames": 3,
+      "documentToken": "c76bfd35-94cf-4e7b-91e7-ff82a6d11d08",
+      "jsProbe": 8,
+      "timeOrigin": 1793656533538.6,
+      "navigationEntries": 1,
+      "mockCalls": 1,
+      "loading": {
+        "hidden": true,
+        "text": "Carregando…",
+        "role": "status"
+      },
+      "noExcess": true,
+      "noScrollbarSpace": true,
+      "result": "PASS"
+    },
+    {
+      "label": "dynamic-4",
+      "requestedViewport": {
+        "width": 1920,
+        "height": 1080
+      },
+      "innerWidth": 1920,
+      "innerHeight": 1080,
+      "canvas": {
+        "x": 0,
+        "y": 0,
+        "width": 1920,
+        "height": 1080,
+        "right": 1920,
+        "bottom": 1080
+      },
+      "canvasCSS": {
+        "width": "1920px",
+        "height": "1080px",
+        "display": "block"
+      },
+      "canvasBuffer": [
+        960,
+        600
+      ],
+      "root": {
+        "clientWidth": 1920,
+        "clientHeight": 1080,
+        "scrollWidth": 1920,
+        "scrollHeight": 1080,
+        "offsetWidth": 1920,
+        "offsetHeight": 1080,
+        "rect": {
+          "x": 0,
+          "y": 0,
+          "width": 1920,
+          "height": 1080,
+          "top": 0,
+          "right": 1920,
+          "bottom": 1080,
+          "left": 0
+        }
+      },
+      "body": {
+        "clientWidth": 1920,
+        "clientHeight": 1080,
+        "scrollWidth": 1920,
+        "scrollHeight": 1080,
+        "offsetWidth": 1920,
+        "offsetHeight": 1080,
+        "rect": {
+          "x": 0,
+          "y": 0,
+          "width": 1920,
+          "height": 1080,
+          "top": 0,
+          "right": 1920,
+          "bottom": 1080,
+          "left": 0
+        }
+      },
+      "browserDPR": 1,
+      "rootOverflow": "hidden",
+      "bodyOverflow": "hidden",
+      "stable": true,
+      "frames": 3,
+      "documentToken": "c76bfd35-94cf-4e7b-91e7-ff82a6d11d08",
+      "jsProbe": 9,
+      "timeOrigin": 1793656533538.6,
+      "navigationEntries": 1,
+      "mockCalls": 1,
+      "loading": {
+        "hidden": true,
+        "text": "Carregando…",
+        "role": "status"
+      },
+      "noExcess": true,
+      "noScrollbarSpace": true,
+      "result": "PASS"
+    },
+    {
+      "label": "dynamic-5",
+      "requestedViewport": {
+        "width": 390,
+        "height": 844
+      },
+      "innerWidth": 390,
+      "innerHeight": 844,
+      "canvas": {
+        "x": 0,
+        "y": 0,
+        "width": 390,
+        "height": 844,
+        "right": 390,
+        "bottom": 844
+      },
+      "canvasCSS": {
+        "width": "390px",
+        "height": "844px",
+        "display": "block"
+      },
+      "canvasBuffer": [
+        960,
+        600
+      ],
+      "root": {
+        "clientWidth": 390,
+        "clientHeight": 844,
+        "scrollWidth": 390,
+        "scrollHeight": 844,
+        "offsetWidth": 390,
+        "offsetHeight": 844,
+        "rect": {
+          "x": 0,
+          "y": 0,
+          "width": 390,
+          "height": 844,
+          "top": 0,
+          "right": 390,
+          "bottom": 844,
+          "left": 0
+        }
+      },
+      "body": {
+        "clientWidth": 390,
+        "clientHeight": 844,
+        "scrollWidth": 390,
+        "scrollHeight": 844,
+        "offsetWidth": 390,
+        "offsetHeight": 844,
+        "rect": {
+          "x": 0,
+          "y": 0,
+          "width": 390,
+          "height": 844,
+          "top": 0,
+          "right": 390,
+          "bottom": 844,
+          "left": 0
+        }
+      },
+      "browserDPR": 1,
+      "rootOverflow": "hidden",
+      "bodyOverflow": "hidden",
+      "stable": true,
+      "frames": 3,
+      "documentToken": "c76bfd35-94cf-4e7b-91e7-ff82a6d11d08",
+      "jsProbe": 10,
+      "timeOrigin": 1793656533538.6,
+      "navigationEntries": 1,
+      "mockCalls": 1,
+      "loading": {
+        "hidden": true,
+        "text": "Carregando…",
+        "role": "status"
+      },
+      "noExcess": true,
+      "noScrollbarSpace": true,
+      "result": "PASS"
+    },
+    {
+      "label": "loader-rejected",
+      "requestedViewport": {
+        "width": 390,
+        "height": 844
+      },
+      "innerWidth": 390,
+      "innerHeight": 844,
+      "canvas": {
+        "x": 0,
+        "y": 0,
+        "width": 390,
+        "height": 844,
+        "right": 390,
+        "bottom": 844
+      },
+      "canvasCSS": {
+        "width": "390px",
+        "height": "844px",
+        "display": "block"
+      },
+      "canvasBuffer": [
+        960,
+        600
+      ],
+      "root": {
+        "clientWidth": 390,
+        "clientHeight": 844,
+        "scrollWidth": 390,
+        "scrollHeight": 844,
+        "offsetWidth": 390,
+        "offsetHeight": 844,
+        "rect": {
+          "x": 0,
+          "y": 0,
+          "width": 390,
+          "height": 844,
+          "top": 0,
+          "right": 390,
+          "bottom": 844,
+          "left": 0
+        }
+      },
+      "body": {
+        "clientWidth": 390,
+        "clientHeight": 844,
+        "scrollWidth": 390,
+        "scrollHeight": 844,
+        "offsetWidth": 390,
+        "offsetHeight": 844,
+        "rect": {
+          "x": 0,
+          "y": 0,
+          "width": 390,
+          "height": 844,
+          "top": 0,
+          "right": 390,
+          "bottom": 844,
+          "left": 0
+        }
+      },
+      "browserDPR": 1,
+      "rootOverflow": "hidden",
+      "bodyOverflow": "hidden",
+      "stable": true,
+      "frames": 3,
+      "documentToken": "cd8fcbc4-5a97-4157-956d-52a145438c7b",
+      "jsProbe": 1,
+      "timeOrigin": 1793656536221.6,
+      "navigationEntries": 1,
+      "mockCalls": 1,
+      "loading": {
+        "hidden": false,
+        "text": "Não foi possível iniciar o jogo. Recarregue a página.",
+        "role": "alert"
+      },
+      "noExcess": true,
+      "noScrollbarSpace": true,
+      "result": "PASS",
+      "screenshot": "loader-falha-inicializacao.png"
+    },
+    {
+      "label": "loader-network-failure",
+      "requestedViewport": {
+        "width": 390,
+        "height": 844
+      },
+      "innerWidth": 390,
+      "innerHeight": 844,
+      "canvas": {
+        "x": 0,
+        "y": 0,
+        "width": 390,
+        "height": 844,
+        "right": 390,
+        "bottom": 844
+      },
+      "canvasCSS": {
+        "width": "390px",
+        "height": "844px",
+        "display": "block"
+      },
+      "canvasBuffer": [
+        960,
+        600
+      ],
+      "root": {
+        "clientWidth": 390,
+        "clientHeight": 844,
+        "scrollWidth": 390,
+        "scrollHeight": 844,
+        "offsetWidth": 390,
+        "offsetHeight": 844,
+        "rect": {
+          "x": 0,
+          "y": 0,
+          "width": 390,
+          "height": 844,
+          "top": 0,
+          "right": 390,
+          "bottom": 844,
+          "left": 0
+        }
+      },
+      "body": {
+        "clientWidth": 390,
+        "clientHeight": 844,
+        "scrollWidth": 390,
+        "scrollHeight": 844,
+        "offsetWidth": 390,
+        "offsetHeight": 844,
+        "rect": {
+          "x": 0,
+          "y": 0,
+          "width": 390,
+          "height": 844,
+          "top": 0,
+          "right": 390,
+          "bottom": 844,
+          "left": 0
+        }
+      },
+      "browserDPR": 1,
+      "rootOverflow": "hidden",
+      "bodyOverflow": "hidden",
+      "stable": true,
+      "frames": 3,
+      "documentToken": "337b3d09-13f4-4656-ac70-26316947f140",
+      "jsProbe": 1,
+      "timeOrigin": 1793656537055.7,
+      "navigationEntries": 1,
+      "loading": {
+        "hidden": false,
+        "text": "Não foi possível iniciar o jogo. Recarregue a página.",
+        "role": "alert"
+      },
+      "noExcess": true,
+      "noScrollbarSpace": true,
+      "result": "PASS",
+      "screenshot": "loader-falha-rede.png"
+    },
+    {
+      "label": "browser-dpr-2",
+      "requestedViewport": {
+        "width": 390,
+        "height": 844
+      },
+      "innerWidth": 390,
+      "innerHeight": 844,
+      "canvas": {
+        "x": 0,
+        "y": 0,
+        "width": 390,
+        "height": 844,
+        "right": 390,
+        "bottom": 844
+      },
+      "canvasCSS": {
+        "width": "390px",
+        "height": "844px",
+        "display": "block"
+      },
+      "canvasBuffer": [
+        960,
+        600
+      ],
+      "root": {
+        "clientWidth": 390,
+        "clientHeight": 844,
+        "scrollWidth": 390,
+        "scrollHeight": 844,
+        "offsetWidth": 390,
+        "offsetHeight": 844,
+        "rect": {
+          "x": 0,
+          "y": 0,
+          "width": 390,
+          "height": 844,
+          "top": 0,
+          "right": 390,
+          "bottom": 844,
+          "left": 0
+        }
+      },
+      "body": {
+        "clientWidth": 390,
+        "clientHeight": 844,
+        "scrollWidth": 390,
+        "scrollHeight": 844,
+        "offsetWidth": 390,
+        "offsetHeight": 844,
+        "rect": {
+          "x": 0,
+          "y": 0,
+          "width": 390,
+          "height": 844,
+          "top": 0,
+          "right": 390,
+          "bottom": 844,
+          "left": 0
+        }
+      },
+      "browserDPR": 2,
+      "rootOverflow": "hidden",
+      "bodyOverflow": "hidden",
+      "stable": true,
+      "frames": 3,
+      "documentToken": "d91185f7-05d0-419c-9d0f-bda8f8d7599e",
+      "jsProbe": 1,
+      "timeOrigin": 1793656539212.4,
+      "navigationEntries": 1,
+      "mockCalls": 1,
+      "loading": {
+        "hidden": true,
+        "text": "Carregando…",
+        "role": "status"
+      },
+      "noExcess": true,
+      "noScrollbarSpace": true,
+      "result": "PASS"
+    }
+  ],
+  "pages": [
+    {
+      "scenario": "success",
+      "dpr": 1,
+      "pageErrors": [],
+      "console": [],
+      "requestFailures": [],
+      "documentNavigations": [
+        "http://127.0.0.1:50404/success/index.html"
+      ]
+    },
+    {
+      "scenario": "failure",
+      "dpr": 1,
+      "pageErrors": [],
+      "console": [
+        {
+          "type": "error",
+          "text": "Error: Falha simulada task28: inicializacao indisponivel\n    at window.__unityMock.fail (http://127.0.0.1:50404/failure/Build/Test.loader.js:9:14)\n    at eval (eval at evaluate (:311:30), <anonymous>:1:26)\n    at UtilityScript.evaluate (<anonymous>:313:16)\n    at UtilityScript.<anonymous> (<anonymous>:1:44)"
+        }
+      ],
+      "requestFailures": [],
+      "documentNavigations": [
+        "http://127.0.0.1:50404/failure/index.html"
+      ]
+    },
+    {
+      "scenario": "loader-missing",
+      "dpr": 1,
+      "pageErrors": [],
+      "console": [
+        {
+          "type": "error",
+          "text": "Failed to load resource: the server responded with a status of 404 (Not Found)"
+        },
+        {
+          "type": "error",
+          "text": "Falha ao carregar o loader da build WebGL."
+        }
+      ],
+      "requestFailures": [
+        {
+          "url": "http://127.0.0.1:50404/loader-missing/Build/Test.loader.js",
+          "error": {
+            "errorText": "net::ERR_ABORTED"
+          }
+        }
+      ],
+      "documentNavigations": [
+        "http://127.0.0.1:50404/loader-missing/index.html"
+      ]
+    },
+    {
+      "scenario": "symbols",
+      "dpr": 1,
+      "pageErrors": [],
+      "console": [],
+      "requestFailures": [],
+      "documentNavigations": [
+        "http://127.0.0.1:50404/symbols/index.html"
+      ]
+    },
+    {
+      "scenario": "high-dpr",
+      "dpr": 2,
+      "pageErrors": [],
+      "console": [],
+      "requestFailures": [],
+      "documentNavigations": [
+        "http://127.0.0.1:50404/high-dpr/index.html"
+      ]
+    }
+  ],
+  "requests": [
+    {
+      "path": "/success/index.html",
+      "status": 200
+    },
+    {
+      "path": "/success/Build/Test.loader.js",
+      "status": 200
+    },
+    {
+      "path": "/favicon.ico",
+      "status": 204
+    },
+    {
+      "path": "/failure/index.html",
+      "status": 200
+    },
+    {
+      "path": "/failure/Build/Test.loader.js",
+      "status": 200
+    },
+    {
+      "path": "/favicon.ico",
+      "status": 204
+    },
+    {
+      "path": "/loader-missing/index.html",
+      "status": 200
+    },
+    {
+      "path": "/loader-missing/Build/Test.loader.js",
+      "status": 404
+    },
+    {
+      "path": "/favicon.ico",
+      "status": 204
+    },
+    {
+      "path": "/symbols/index.html",
+      "status": 200
+    },
+    {
+      "path": "/symbols/Build/Test.loader.js",
+      "status": 200
+    },
+    {
+      "path": "/favicon.ico",
+      "status": 204
+    },
+    {
+      "path": "/high-dpr/index.html",
+      "status": 200
+    },
+    {
+      "path": "/high-dpr/Build/Test.loader.js",
+      "status": 200
+    },
+    {
+      "path": "/favicon.ico",
+      "status": 204
+    }
+  ],
+  "browserVersion": "156.0.8078.74",
+  "loaderCaptured": {
+    "config": {
+      "dataUrl": "Build/Test.data",
+      "frameworkUrl": "Build/Test.framework.js",
+      "codeUrl": "Build/Test.wasm",
+      "streamingAssetsUrl": "StreamingAssets",
+      "companyName": "CIATec",
+      "productName": "Caça às Cores",
+      "productVersion": "0.1.0",
+      "matchWebGLToCanvasSize": true,
+      "devicePixelRatio": 1
+    },
+    "canvasId": "unity-canvas",
+    "canvasAttributes": [
+      "960",
+      "600"
+    ]
+  },
+  "symbolsConfig": {
+    "dataUrl": "Build/Test.data",
+    "frameworkUrl": "Build/Test.framework.js",
+    "codeUrl": "Build/Test.wasm",
+    "symbolsUrl": "Build/Test.symbols.json",
+    "streamingAssetsUrl": "StreamingAssets",
+    "companyName": "CIATec",
+    "productName": "Caça às Cores",
+    "productVersion": "0.1.0",
+    "matchWebGLToCanvasSize": true,
+    "devicePixelRatio": 1
+  },
+  "highDPRConfig": {
+    "dataUrl": "Build/Test.data",
+    "frameworkUrl": "Build/Test.framework.js",
+    "codeUrl": "Build/Test.wasm",
+    "streamingAssetsUrl": "StreamingAssets",
+    "companyName": "CIATec",
+    "productName": "Caça às Cores",
+    "productVersion": "0.1.0",
+    "matchWebGLToCanvasSize": true,
+    "devicePixelRatio": 1
+  },
+  "finishedAtUTC": "2026-11-02T21:55:47.843Z",
+  "summary": {
+    "pass": 43,
+    "fail": 0,
+    "measurements": 13
+  }
+}
