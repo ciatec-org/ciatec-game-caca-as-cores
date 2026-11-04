@@ -38,4 +38,21 @@ public class ConfiguracaoDoJogo : ScriptableObject
     [Header("Tempos - Interface (Seção 7.4)")]
     [Tooltip("Tempo de reação visual de objetos e botões ao clique (80 ms)")]
     public float tempoRespostaBotao = 0.08f;
+
+    /// <summary>A cor configurada para cada uma das seis cores do jogo (RT-61).</summary>
+    public Color ObterCor(CorDoJogo cor)
+    {
+        switch (cor)
+        {
+            case CorDoJogo.Vermelho: return corVermelho;
+            case CorDoJogo.Azul:     return corAzul;
+            case CorDoJogo.Verde:    return corVerde;
+            case CorDoJogo.Amarelo:  return corAmarelo;
+            case CorDoJogo.Laranja:  return corLaranja;
+            case CorDoJogo.Roxo:     return corRoxo;
+            default:
+                Debug.LogWarning($"Cor '{cor}' sem valor configurado.", this);
+                return Color.white;
+        }
+    }
 }
