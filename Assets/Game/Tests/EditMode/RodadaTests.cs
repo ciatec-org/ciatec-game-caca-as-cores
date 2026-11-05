@@ -132,15 +132,17 @@ public class RodadaTests
             new ObjetoDaRodada(CorDoJogo.Amarelo, FormaDoJogo.Estrela),
         });
 
+        // O acerto fecha a rodada, então cada índice é avaliado numa rodada nova.
         for (int i = 0; i < rodada.Objetos.Count; i++)
         {
+            var nova = Rodada.CriarCorEForma(rodada.CorAlvo, rodada.FormaAlvo.Value, rodada.Objetos);
             var esperado = i == 2 ? ResultadoDaSelecao.Acerto : ResultadoDaSelecao.SelecaoIncorreta;
-            Assert.AreEqual(esperado, rodada.Avaliar(i), $"índice {i}");
+            Assert.AreEqual(esperado, nova.Avaliar(i), $"índice {i}");
         }
     }
 
     [Test]
-    public void AvaliarNaoMudaARodada_DepoisDeUmErroAindaPodeAcertar()
+    public void DepoisDeUmErro_ARodadaContinuaAbertaEAindaPodeAcertar()
     {
         // RT-41: depois de um erro a rodada continua aberta.
         var rodada = Rodada.CriarSoCor(CorDoJogo.Verde, new[]
@@ -181,5 +183,146 @@ public class RodadaTests
 
         Assert.AreEqual(2, rodada.Objetos.Count);
         Assert.AreEqual(ResultadoDaSelecao.Acerto, rodada.Avaliar(1));
+    }
+
+    // ---------- US-02.4: errar e tentar de novo (RT-41, RT-85, RT-89) ----------
+
+    private static Rodada CriarRodadaComTresObjetos()
+    {
+        // 0 círculo azul, 1 quadrado vermelho (alvo), 2 estrela verde
+        return Rodada.CriarSoCor(CorDoJogo.Vermelho, new[]
+        {
+            new ObjetoDaRodada(CorDoJogo.Azul, FormaDoJogo.Circulo),
+            new ObjetoDaRodada(CorDoJogo.Vermelho, FormaDoJogo.Quadrado),
+            new ObjetoDaRodada(CorDoJogo.Verde, FormaDoJogo.Estrela),
+        });
+    }
+
+    [Test]
+    public void RodadaNova_ComecaAbertaESemTentativas()
+    {
+        var rodada = CriarRodadaComTresObjetos();
+
+        Assert.IsTrue(rodada.Aberta);
+        Assert.AreEqual(0, rodada.Tentativas);
+        Assert.IsNull(rodada.Fechamento);
+        Assert.IsFalse(rodada.Correta);
+    }
+
+    [Test]
+    public void OutroClique_DepoisDeUmErro_EAceitoEConferidoDeNovo()
+    {
+        var rodada = CriarRodadaComTresObjetos();
+
+        Assert.AreEqual(ResultadoDaSelecao.SelecaoIncorreta, rodada.Avaliar(0));
+        Assert.IsTrue(rodada.Aberta);
+
+        // Dado uma seleção incorreta, quando clica em outra forma, o jogo aceita e confere de novo.
+        Assert.AreEqual(ResultadoDaSelecao.SelecaoIncorreta, rodada.Avaliar(2));
+        Assert.IsTrue(rodada.Aberta);
+        Assert.AreEqual(2, rodada.Tentativas);
+    }
+
+    [Test]
+    public void MesmoObjetoErradoDeNovo_TambemEAceito()
+    {
+        var rodada = CriarRodadaComTresObjetos();
+
+        rodada.Avaliar(0);
+        Assert.AreEqual(ResultadoDaSelecao.SelecaoIncorreta, rodada.Avaliar(0));
+        Assert.AreEqual(2, rodada.Tentativas);
+        Assert.IsTrue(rodada.Aberta);
+    }
+
+    [Test]
+    public void AcertoDePrimeira_FechaComoCorreta()
+    {
+        var rodada = CriarRodadaComTresObjetos();
+
+        Assert.AreEqual(ResultadoDaSelecao.Acerto, rodada.Avaliar(1));
+
+        Assert.IsFalse(rodada.Aberta);
+        Assert.AreEqual(1, rodada.Tentativas);
+        Assert.AreEqual(FechamentoDaRodada.Correta, rodada.Fechamento);
+        Assert.IsTrue(rodada.Correta);
+    }
+
+    [Test]
+    public void AcertoNaSegunda_FechaComErro_ENaoComoCorreta()
+    {
+        var rodada = CriarRodadaComTresObjetos();
+
+        rodada.Avaliar(0);
+        Assert.AreEqual(ResultadoDaSelecao.Acerto, rodada.Avaliar(1));
+
+        Assert.IsFalse(rodada.Aberta);
+        Assert.AreEqual(2, rodada.Tentativas);
+        Assert.AreEqual(FechamentoDaRodada.ComErro, rodada.Fechamento);
+        Assert.IsFalse(rodada.Correta);
+    }
+
+    [Test]
+    public void AcertoDepoisDeVariosErros_TambemFechaComErro()
+    {
+        var rodada = CriarRodadaComTresObjetos();
+
+        rodada.Avaliar(0);
+        rodada.Avaliar(2);
+        rodada.Avaliar(0);
+        rodada.Avaliar(1);
+
+        Assert.AreEqual(4, rodada.Tentativas);
+        Assert.AreEqual(FechamentoDaRodada.ComErro, rodada.Fechamento);
+    }
+
+    [Test]
+    public void ErroNaoFechaARodada_NemMarcaFechamento()
+    {
+        var rodada = CriarRodadaComTresObjetos();
+
+        rodada.Avaliar(0);
+
+        Assert.IsTrue(rodada.Aberta);
+        Assert.IsNull(rodada.Fechamento);
+        Assert.IsFalse(rodada.Correta);
+    }
+
+    [Test]
+    public void DepoisDoAcerto_AvaliarLancaExcecao_ENaoContaTentativa()
+    {
+        var rodada = CriarRodadaComTresObjetos();
+        rodada.Avaliar(1);
+
+        Assert.Throws<InvalidOperationException>(() => rodada.Avaliar(0));
+        Assert.Throws<InvalidOperationException>(() => rodada.Avaliar(1));
+
+        Assert.AreEqual(1, rodada.Tentativas);
+        Assert.AreEqual(FechamentoDaRodada.Correta, rodada.Fechamento);
+    }
+
+    [Test]
+    public void IndiceInvalido_NaoContaComoTentativa()
+    {
+        var rodada = CriarRodadaComTresObjetos();
+
+        Assert.Throws<ArgumentOutOfRangeException>(() => rodada.Avaliar(-1));
+        Assert.Throws<ArgumentOutOfRangeException>(() => rodada.Avaliar(3));
+
+        Assert.AreEqual(0, rodada.Tentativas);
+        Assert.IsTrue(rodada.Aberta);
+    }
+
+    [Test]
+    public void ModoCorEForma_AcertoNaSegunda_TambemEComErro()
+    {
+        var rodada = Rodada.CriarCorEForma(CorDoJogo.Vermelho, FormaDoJogo.Estrela, new[]
+        {
+            new ObjetoDaRodada(CorDoJogo.Vermelho, FormaDoJogo.Quadrado),
+            new ObjetoDaRodada(CorDoJogo.Vermelho, FormaDoJogo.Estrela),
+        });
+
+        Assert.AreEqual(ResultadoDaSelecao.SelecaoIncorreta, rodada.Avaliar(0));
+        Assert.AreEqual(ResultadoDaSelecao.Acerto, rodada.Avaliar(1));
+        Assert.AreEqual(FechamentoDaRodada.ComErro, rodada.Fechamento);
     }
 }
