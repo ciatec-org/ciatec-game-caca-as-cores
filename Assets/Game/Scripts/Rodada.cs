@@ -5,8 +5,12 @@ using System.Collections.Generic;
 /// Uma rodada: a instrução (cor, ou cor e forma) e os objetos da tela.
 /// Exatamente um objeto satisfaz a instrução; os outros são distratores (RT-02).
 ///
-/// É uma classe C# pura (não é MonoBehaviour) e imutável depois de criada:
-/// o sorteio monta a rodada, e a tela só pergunta se a escolha acerta.
+/// É uma classe C# pura (não é MonoBehaviour). A instrução e os objetos não mudam depois de
+/// criada; o que muda é a conta das tentativas e o fechamento:
+/// - Um erro não fecha a rodada: a criança tenta de novo, quantas vezes precisar (RT-41).
+/// - O acerto fecha a rodada. Se foi a primeira tentativa, ela é correta; se não, é com erro (RT-85).
+/// - As tentativas são só a conta para classificar a rodada (RT-89): não aparecem para a criança
+///   e não valem nada além do fechamento.
 /// Quem sorteia (gerador de rodadas) e quem registra (telemetria) ficam fora dela.
 /// </summary>
 public class Rodada
@@ -27,6 +31,18 @@ public class Rodada
 
     /// <summary>O único objeto que satisfaz a instrução.</summary>
     public ObjetoDaRodada Alvo => Objetos[IndiceDoAlvo];
+
+    /// <summary>Quantas seleções a criança fez nesta rodada, contando o acerto, se já houve.</summary>
+    public int Tentativas { get; private set; }
+
+    /// <summary>Como a rodada fechou. É null enquanto ela está aberta.</summary>
+    public FechamentoDaRodada? Fechamento { get; private set; }
+
+    /// <summary>Verdadeiro até o acerto: depois de um erro a rodada continua aberta (RT-41).</summary>
+    public bool Aberta => Fechamento == null;
+
+    /// <summary>Verdadeiro só se a rodada fechou com acerto na primeira tentativa (RT-85).</summary>
+    public bool Correta => Fechamento == FechamentoDaRodada.Correta;
 
     /// <summary>Modo só cor: "Encontre o vermelho". As formas não importam (RT-03).</summary>
     public static Rodada CriarSoCor(CorDoJogo corAlvo, IEnumerable<ObjetoDaRodada> objetos)
@@ -91,13 +107,23 @@ public class Rodada
     }
 
     /// <summary>
-    /// O método que diz se a escolha acerta (RT-06): selecionar o alvo é acerto,
-    /// e qualquer outro objeto é seleção incorreta. Não muda o estado da rodada:
-    /// depois de um erro a rodada continua aberta (RT-41).
+    /// Avalia uma seleção e conta a tentativa. Selecionar o alvo é acerto e fecha a rodada;
+    /// qualquer outro objeto é seleção incorreta e a rodada continua aberta (RT-06, RT-41).
+    /// O acerto na primeira tentativa fecha como <see cref="FechamentoDaRodada.Correta"/>;
+    /// o acerto depois de um erro, como <see cref="FechamentoDaRodada.ComErro"/> (RT-85).
     /// </summary>
     /// <param name="indiceSelecionado">Posição do objeto tocado em <see cref="Objetos"/>.</param>
+    /// <exception cref="InvalidOperationException">A rodada já fechou no acerto. Quem chama deve
+    /// ignorar a seleção enquanto <see cref="Aberta"/> for falso (RT-77).</exception>
     public ResultadoDaSelecao Avaliar(int indiceSelecionado)
     {
+        if (!Aberta)
+        {
+            throw new InvalidOperationException(
+                "A rodada já fechou no acerto e não aceita novas seleções.");
+        }
+
+        // Índice inválido é erro de quem chama, e não uma tentativa da criança: não é contado.
         if (indiceSelecionado < 0 || indiceSelecionado >= Objetos.Count)
         {
             throw new ArgumentOutOfRangeException(
@@ -106,9 +132,15 @@ public class Rodada
                 $"O índice deve estar entre 0 e {Objetos.Count - 1}.");
         }
 
-        return indiceSelecionado == IndiceDoAlvo
-            ? ResultadoDaSelecao.Acerto
-            : ResultadoDaSelecao.SelecaoIncorreta;
+        Tentativas++;
+
+        if (indiceSelecionado != IndiceDoAlvo)
+            return ResultadoDaSelecao.SelecaoIncorreta;
+
+        Fechamento = Tentativas == 1
+            ? FechamentoDaRodada.Correta
+            : FechamentoDaRodada.ComErro;
+        return ResultadoDaSelecao.Acerto;
     }
 
     private string DescreverPedido()

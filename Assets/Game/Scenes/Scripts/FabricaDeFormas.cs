@@ -104,14 +104,14 @@ public static class FabricaDeFormas
         const float raioInterno = 0.19f;
         var centro = new Vector2(0.5f, 0.52f);
 
-        var pontos = new Vector2[pontas * 2];
-        for (int i = 0; i < pontos.Length; i++)
+        var vertices = new Vector2[pontas * 2];
+        for (int i = 0; i < vertices.Length; i++)
         {
             float raio = (i % 2 == 0) ? raioExterno : raioInterno;
             float angulo = Mathf.PI / 2f + i * Mathf.PI / pontas; // começa apontando para cima
-            pontos[i] = centro + new Vector2(Mathf.Cos(angulo), Mathf.Sin(angulo)) * raio;
+            vertices[i] = centro + new Vector2(Mathf.Cos(angulo), Mathf.Sin(angulo)) * raio;
         }
-        return pontos;
+        return vertices;
     }
 
     // Ray casting: conta quantas arestas um raio horizontal cruza à direita do ponto.

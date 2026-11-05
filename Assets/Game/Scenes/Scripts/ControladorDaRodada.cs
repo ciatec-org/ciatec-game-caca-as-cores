@@ -103,13 +103,27 @@ public class ControladorDaRodada : MonoBehaviour
 
     private void AoSelecionar(int indice)
     {
+        // Depois de um erro a rodada continua aberta e o clique é aceito (RT-41).
+        // Depois do acerto ela está fechada: tocar num objeto não faz nada (RT-77).
+        if (!RodadaAtual.Aberta)
+            return;
+
         ResultadoDaSelecao resultado = RodadaAtual.Avaliar(indice);
 
         textoResultado.text = resultado == ResultadoDaSelecao.Acerto
             ? "Acerto!"
             : "Seleção incorreta";
 
-        Debug.Log($"[Rodada] {RodadaAtual.Objetos[indice]} (índice {indice}) → {resultado}");
+        // O número da tentativa vai só para o Console, para conferir jogando: a criança não vê números.
+        Debug.Log($"[Rodada] tentativa {RodadaAtual.Tentativas}: {RodadaAtual.Objetos[indice]} (índice {indice}) → {resultado}");
+
+        // T-02.4.3: ao fechar a rodada, o Console diz se ela foi correta ou com erro (GDD 13.3).
+        if (!RodadaAtual.Aberta)
+        {
+            string classificacao = RodadaAtual.Correta ? "CORRETA (acerto de primeira)" : "COM ERRO (acertou depois de errar)";
+            Debug.Log($"[Rodada] fechada: {classificacao} | tentativas: {RodadaAtual.Tentativas}");
+        }
+
         SelecaoAvaliada?.Invoke(indice, resultado);
     }
 
