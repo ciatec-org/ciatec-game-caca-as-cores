@@ -55,8 +55,8 @@ public class ControladorDaRodada : MonoBehaviour
         if (FindFirstObjectByType<EventSystem>() == null)
             Debug.LogWarning("ControladorDaRodada: não há EventSystem na cena, e sem ele o clique não chega.", this);
 
-        CriarInterface();
-        IniciarRodada(MontarRodadaDeExemplo());
+        if (RodadaAtual == null)
+            IniciarRodada(MontarRodadaDeExemplo());
     }
 
     /// <summary>Mostra a rodada na tela e liga cada forma à regra.</summary>
@@ -65,12 +65,19 @@ public class ControladorDaRodada : MonoBehaviour
         if (rodada == null)
             throw new ArgumentNullException(nameof(rodada));
 
+        string instrucao = InstrucaoDaRodada.Montar(rodada);
+
+        if (fileira == null)
+            CriarInterface();
+
         RodadaAtual = rodada;
-
         foreach (Transform filho in fileira)
+        {
+            filho.gameObject.SetActive(false);
             Destroy(filho.gameObject);
+        }
 
-        textoInstrucao.text = MontarInstrucao(rodada);
+        textoInstrucao.text = instrucao;
         textoResultado.text = string.Empty;
 
         for (int i = 0; i < rodada.Objetos.Count; i++)
@@ -133,45 +140,6 @@ public class ControladorDaRodada : MonoBehaviour
         }
     }
 
-    // PROVISÓRIO: o texto final da instrução é da US-02.2 (RT-90). Existe aqui só para a
-    // conferência jogando saber o que foi pedido.
-    private static string MontarInstrucao(Rodada rodada)
-    {
-        bool corFeminina = rodada.FormaAlvo == FormaDoJogo.Estrela;
-        string cor = NomeDaCor(rodada.CorAlvo, corFeminina);
-
-        if (rodada.Modo == ModoDeRodada.SoCor)
-            return $"Encontre o {cor}";
-
-        FormaDoJogo forma = rodada.FormaAlvo.Value;
-        string artigo = forma == FormaDoJogo.Estrela ? "a" : "o";
-        return $"Encontre {artigo} {NomeDaForma(forma)} {cor}";
-    }
-
-    private static string NomeDaForma(FormaDoJogo forma)
-    {
-        switch (forma)
-        {
-            case FormaDoJogo.Circulo:   return "círculo";
-            case FormaDoJogo.Quadrado:  return "quadrado";
-            case FormaDoJogo.Triangulo: return "triângulo";
-            default:                    return "estrela";
-        }
-    }
-
-    private static string NomeDaCor(CorDoJogo cor, bool feminino)
-    {
-        switch (cor)
-        {
-            case CorDoJogo.Vermelho: return feminino ? "vermelha" : "vermelho";
-            case CorDoJogo.Amarelo:  return feminino ? "amarela" : "amarelo";
-            case CorDoJogo.Roxo:     return feminino ? "roxa" : "roxo";
-            case CorDoJogo.Azul:     return "azul";
-            case CorDoJogo.Verde:    return "verde";
-            default:                 return "laranja";
-        }
-    }
-
     // ---------- Interface provisória, montada por código ----------
 
     private void CriarInterface()
@@ -201,8 +169,46 @@ public class ControladorDaRodada : MonoBehaviour
         layout.childForceExpandWidth = false;
         layout.childForceExpandHeight = false;
 
-        textoInstrucao = CriarTexto("Instrucao", canvasGo.transform, 72f, new Vector2(0.5f, 1f), new Vector2(0f, -140f));
+        CriarCartaoDaInstrucao();
         textoResultado = CriarTexto("Resultado", canvasGo.transform, 64f, new Vector2(0.5f, 0f), new Vector2(0f, 140f));
+    }
+
+    private void CriarCartaoDaInstrucao()
+    {
+        // Escala de 1 px por unidade para manter as medidas do SGDD 7.4 ao redimensionar.
+        // A fileira e o retorno continuam usando a escala do Canvas_Rodada.
+        var canvasGo = new GameObject("Canvas_Instrucao", typeof(Canvas));
+        canvasGo.transform.SetParent(transform, false);
+        var canvas = canvasGo.GetComponent<Canvas>();
+        canvas.renderMode = RenderMode.ScreenSpaceOverlay;
+        canvas.sortingOrder = 1;
+
+        var cartao = new GameObject("CartaoDaInstrucao", typeof(RectTransform), typeof(Image));
+        cartao.transform.SetParent(canvasGo.transform, false);
+
+        var rect = (RectTransform)cartao.transform;
+        rect.anchorMin = new Vector2(0f, 1f);
+        rect.anchorMax = Vector2.one;
+        rect.offsetMin = new Vector2(16f, -104f);
+        rect.offsetMax = new Vector2(-16f, -16f);
+
+        var fundo = cartao.GetComponent<Image>();
+        fundo.color = Color.white;
+        fundo.raycastTarget = false;
+
+        var rotulo = new GameObject("Instrucao", typeof(RectTransform), typeof(TextMeshProUGUI));
+        rotulo.transform.SetParent(cartao.transform, false);
+        var rectTexto = (RectTransform)rotulo.transform;
+        Esticar(rectTexto);
+        rectTexto.offsetMin = new Vector2(12f, 8f);
+        rectTexto.offsetMax = new Vector2(-12f, -8f);
+
+        textoInstrucao = rotulo.GetComponent<TextMeshProUGUI>();
+        textoInstrucao.fontSize = 26f;
+        textoInstrucao.alignment = TextAlignmentOptions.Center;
+        textoInstrucao.color = Color.black;
+        textoInstrucao.raycastTarget = false;
+        textoInstrucao.textWrappingMode = TextWrappingModes.Normal;
     }
 
     private static TextMeshProUGUI CriarTexto(string nome, Transform pai, float tamanhoDaFonte, Vector2 ancora, Vector2 posicao)
