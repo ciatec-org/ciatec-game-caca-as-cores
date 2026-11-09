@@ -37,6 +37,19 @@ public enum ResultadoDaSelecao
     SelecaoIncorreta
 }
 
+/// <summary>
+/// Como a rodada fechou no acerto (GDD 13.3). As outras duas categorias, não resolvida e omissão,
+/// são das rodadas que fecham sem acerto (tempo limite ou saída) e entram com essas histórias.
+/// </summary>
+public enum FechamentoDaRodada
+{
+    /// <summary>Acertou na primeira tentativa. Só esta conta para o portão (RT-85).</summary>
+    Correta,
+
+    /// <summary>Errou e depois acertou. Não conta como correta (RT-85).</summary>
+    ComErro
+}
+
 /// <summary>Um objeto da rodada: só o que ele é (cor e forma), sem posição (RT-127).</summary>
 public readonly struct ObjetoDaRodada
 {
