@@ -2,9 +2,9 @@
 doc: GLIDE Doc 1 — SGDD
 titulo: Caça às Cores
 subtitulo: Busca visual e resposta a instruções, para crianças em idade escolar
-versao: v2.11
-mudanca: as formas, as cores e a interface da rodada viram regra mais recomendação, e o time escolhe dentro da regra. v2.10: sem cópia da sessão no navegador; o time escolhe as cores; textos de tela, categorias da rodada e layout completados; sem a tela Fim (o cartão da fase 5 diz que terminou); o porquê das decisões saiu do corpo para as DD, e o GDD dos alunos sai das seções 1 a 13. v2.9: só no navegador, com o arquivo da sessão baixado sozinho; quem não passa tenta de novo, sem descida; sem vibração, sem animações reduzidas e sem tabela de tradução; a tabela das cores vizinhas e a concordância da estrela no texto; RT-33 e RT-48 reescritos. v2.8: o jardim menos apagado, e sem nenhuma das seis cores do jogo (DD-41 revista). v2.7: o jardim também por trás dos menus
-data: 14/10/2026
+versao: v2.12
+mudanca: cinco formas, com o retângulo, e o marrom no lugar do amarelo, pela escolha do time (DD-24, DD-28); o tronco do cenário passa a marrom claro, para não se confundir com o alvo marrom; as figuras dos menus passam para a pasta visual-menus. v2.11: as formas, as cores e a interface da rodada viram regra mais recomendação, e o time escolhe dentro da regra. v2.10: sem cópia da sessão no navegador; o time escolhe as cores; textos de tela, categorias da rodada e layout completados; sem a tela Fim (o cartão da fase 5 diz que terminou); o porquê das decisões saiu do corpo para as DD, e o GDD dos alunos sai das seções 1 a 13. v2.9: só no navegador, com o arquivo da sessão baixado sozinho; quem não passa tenta de novo, sem descida; sem vibração, sem animações reduzidas e sem tabela de tradução; a tabela das cores vizinhas e a concordância da estrela no texto; RT-33 e RT-48 reescritos. v2.8: o jardim menos apagado, e sem nenhuma das seis cores do jogo (DD-41 revista). v2.7: o jardim também por trás dos menus
+data: 10/11/2026
 projeto_vinculado: Exercício de design científico GLIDE
 organizacao: CIATec (contexto ilustrativo)
 triple_diamond: 1º Diamante — definição inicial, proposta
@@ -14,7 +14,7 @@ tipo: requisitos
 ids_externos: RT
 status: rascunho
 data_criacao: 01/10/2026
-data_atualizacao: 14/10/2026
+data_atualizacao: 10/11/2026
 ---
 
 # 1 CONCEITO DO JOGO
@@ -63,29 +63,29 @@ A tarefa permite observar a resposta a estímulos e instruções em condições 
 
 ## 2.2 Os objetos e os dois modos
 
-**Os objetos da tarefa são quatro formas geométricas planas** (`DD-24`), que se distinguem pela silhueta, mesmo pequenas, e que uma criança de 6 anos sabe nomear. Os objetos do cotidiano ficam no cenário, e nunca são alvo.
+**Os objetos da tarefa são cinco formas geométricas planas** (`DD-24`), que se distinguem pela silhueta, mesmo pequenas, e que uma criança de 6 anos sabe nomear. Os objetos do cotidiano ficam no cenário, e nunca são alvo.
 
 **As cores são seis** (`DD-28`), com nomes diferentes entre si e que a criança conhece. Nenhuma delas aparece no cenário, e todas têm o contraste da seção 7.4 com ele. Os valores ficam num lugar só, que se ajusta sem mexer no código.
 
-**O time escolhe as quatro formas e as seis cores**, dentro destas regras, e o orientador aprova a escolha antes de o jogo usá-las. Os exemplos deste documento usam a recomendação abaixo.
+**O time escolheu as cinco formas e as seis cores**, dentro destas regras, e o orientador aprovou a escolha. Os exemplos deste documento usam esta escolha.
 
-> **Recomendação.** As formas: círculo, quadrado, triângulo e estrela. As cores: vermelho, azul, verde, amarelo, laranja e roxo, com os valores que passarem no contraste.
+> **A escolha.** As formas: retângulo, quadrado, círculo, estrela e triângulo. As cores: vermelho, laranja, marrom, verde, azul e roxo.
 
 **Há dois modos, e só dois** (`DD-01`, `DD-24`):
 
-- **Só cor.** A instrução nomeia só a cor ("Encontre o vermelho"), e o alvo é o único objeto daquela cor. As formas se sorteiam entre as quatro, e não são todas iguais; elas não importam: a criança acerta pela cor.
+- **Só cor.** A instrução nomeia só a cor ("Encontre o vermelho"), e o alvo é o único objeto daquela cor. As formas se sorteiam entre as cinco, e não são todas iguais; elas não importam: a criança acerta pela cor.
 - **Cor e forma.** A instrução nomeia a forma e a cor ("Encontre o quadrado azul"), e o alvo é o único objeto que tem as duas. Para a forma pesar, há distratores com a mesma cor e outra forma, e com a mesma forma e outra cor (`G-05`).
 
-**A semelhança dos distratores tem dois graus** (`DD-28`): vizinhos, das duas cores mais parecidas com a cor do alvo — as que ficam ao lado dela no círculo das cores —, e distintos, das outras três. **O time monta a tabela das vizinhas e das distintas para as cores que escolher**, no formato da tabela abaixo, que é a das cores recomendadas. No modo só cor, todo distrator tem outra cor, com outro nome. No modo cor e forma, um distrator tem a cor do alvo e outra forma (`G-05`), e os de outra cor seguem a semelhança da fase.
+**A semelhança dos distratores tem dois graus** (`DD-28`): vizinhos, das duas cores mais parecidas com a cor do alvo — as que ficam ao lado dela no círculo das cores —, e distintos, das outras três. **O time montou a tabela das vizinhas e das distintas para as cores que escolheu**, e ela é a tabela abaixo. No modo só cor, todo distrator tem outra cor, com outro nome. No modo cor e forma, um distrator tem a cor do alvo e outra forma (`G-05`), e os de outra cor seguem a semelhança da fase.
 
 | Cor do alvo | Cores vizinhas | Cores distintas |
 | --- | --- | --- |
-| Vermelho | Laranja e roxo | Amarelo, verde e azul |
-| Laranja | Vermelho e amarelo | Verde, azul e roxo |
-| Amarelo | Laranja e verde | Vermelho, azul e roxo |
-| Verde | Amarelo e azul | Vermelho, laranja e roxo |
-| Azul | Verde e roxo | Vermelho, laranja e amarelo |
-| Roxo | Azul e vermelho | Laranja, amarelo e verde |
+| Vermelho | Laranja e roxo | Marrom, verde e azul |
+| Laranja | Vermelho e marrom | Verde, azul e roxo |
+| Marrom | Laranja e verde | Vermelho, azul e roxo |
+| Verde | Marrom e azul | Vermelho, laranja e roxo |
+| Azul | Verde e roxo | Vermelho, laranja e marrom |
+| Roxo | Azul e vermelho | Laranja, marrom e verde |
 
 ## 2.3 Fechamento da rodada, da fase e da sessão
 
@@ -203,16 +203,16 @@ A duração é ilustrativa, e não validada clinicamente: cada fase leva cerca d
 
 **Os menus emulam o visual dos menus dos pacotes CIATEC, e o laço de jogo tem o tema do jogo** (`DD-17`). O início, as configurações e a grade de fases reproduzem a moldura dos menus da plataforma — a barra com o símbolo e a marca CIATEC, e o painel com borda e preenchimento translúcido, por trás do qual aparece o jardim do jogo (`DD-41`) —, com as cores e as medidas da pasta `visual-menus`. Os menus só têm o tema claro (`DD-31`). **O jogo não usa o M3Kit:** reproduz o visual com os próprios meios, com o símbolo, as fontes, as cores e as medidas da pasta `visual-menus`. O tutorial, as rodadas, o retorno, a pausa e o cartão do fim da fase têm a arte e o tema do jogo. A barra só tem o símbolo e a marca e, na grade de fases, o voltar.
 
-![](figuras/menu-inicio.png)
+![](visual-menus/menu-inicio.png)
 
 **A tela de configurações** é do mediador, e vem depois do início. Nela se digitam o código pseudônimo da criança (`DD-34`), sem o qual o Começar não segue e o campo diz "Digite o código da criança (não o nome).", porque todo evento do registro leva o código, e se escolhem as fases liberadas, o tempo limite, o áudio, a voz e a mãozinha do tutorial. Os padrões são fases liberadas até a 1, tempo limite desligado, áudio ligado, voz ligada e mãozinha ligada (`DD-35`, `DD-43`). Quando a janela não comporta todas as opções, a tela rola, e o Começar fica fixo embaixo: em retrato, uma coluna, com o rótulo em cima do seletor; em paisagem, duas colunas, com o rótulo ao lado (`DD-40`). Os rótulos são os mesmos nas duas: Código da criança, Fases liberadas até, Tempo limite, Áudio, Voz na instrução e Mãozinha no tutorial.
 
-![](figuras/janela-menus.png)
+![](visual-menus/janela-menus.png)
 
 
 **A grade de fases** segue o menu de fases dos pacotes CIATEC: as cinco fases em cards de 140 dp ou mais, que preenchem a largura do painel (`DD-43`). O card mostra o número, uma miniatura do que a fase tem — quantas formas, se só cor ou cor e forma — e uma linha curta para o mediador. A liberada tem a borda acesa, a concluída tem um ✓ e pode ser jogada de novo, a bloqueada tem um cadeado e, tocada, faz aparecer numa linha abaixo da grade "Passe a fase N para liberar a fase N + 1.", que fica até o próximo toque. Em retrato, os cards ficam em duas colunas; em paisagem, os cinco numa linha. O voltar da barra volta ao início.
 
-![](figuras/menu-fases.png)
+![](visual-menus/menu-fases.png)
 
 **A tela da rodada** traz a instrução em texto, os botões de pausa e de saída e os objetos sobre o cenário. **O arranjo dela é do time**, dentro destas regras: a instrução e os dois botões ficam sempre visíveis; os objetos não se sobrepõem e ficam longe dos botões; o arranjo se reorganiza com a orientação (`DD-40`); e redimensionar a janela no meio da rodada reorganiza a tela sem perder nada. O laço de jogo pode ter um visual bem diferente dos menus.
 
@@ -287,11 +287,11 @@ Quatro regras governam o retorno.
 
 **As formas são planas e de contorno nítido**, nas seis cores (`DD-24`, `DD-28`).
 
-**A instrução segue um modelo só** (`DD-27`): no modo só cor, "Encontre o \<cor\>"; no modo cor e forma, "Encontre o \<forma\> \<cor\>", com o artigo e a cor concordando com o gênero da forma — com as recomendadas, "Encontre a estrela vermelha", e azul, verde e laranja não mudam. O texto fica na tela a rodada inteira (`DD-27`): nada some sozinho.
+**A instrução segue um modelo só** (`DD-27`): no modo só cor, "Encontre o \<cor\>"; no modo cor e forma, "Encontre o \<forma\> \<cor\>", com o artigo e a cor concordando com o gênero da forma — com as escolhidas, "Encontre a estrela vermelha", e azul, verde, laranja e marrom não mudam. O texto fica na tela a rodada inteira (`DD-27`): nada some sozinho.
 
 ## 9.3 Temas
 
-**Um cenário só, calmo, o mesmo em todas as rodadas** (`DD-33`): tons suaves, pouco detalhe, nada que se mova, com as formas sobre ele. **O céu e o chão cobrem a tela inteira em qualquer proporção, e as peças do cenário ficam presas nos cantos de baixo** (`DD-41`): elas crescem pelo lado curto da tela, não se esticam quando ela gira, e, se a tela for estreita demais, a menos importante some primeiro — as flores, depois a cerca; a árvore fica. **O cenário não usa nenhuma das seis cores do jogo** (`DD-41`): céu azul-claro, chão e copa em verdes acinzentados, tronco marrom, contornos em verde mais escuro; uma flor vermelha ou um balão azul no fundo competiria com a instrução. É nele que entram os objetos do cotidiano — a criança ajuda a organizar as coisas do jardim —, que nunca são alvo e não competem com a instrução (`DD-11`). A arte final do jardim não existe (seção 15.3).
+**Um cenário só, calmo, o mesmo em todas as rodadas** (`DD-33`): tons suaves, pouco detalhe, nada que se mova, com as formas sobre ele. **O céu e o chão cobrem a tela inteira em qualquer proporção, e as peças do cenário ficam presas nos cantos de baixo** (`DD-41`): elas crescem pelo lado curto da tela, não se esticam quando ela gira, e, se a tela for estreita demais, a menos importante some primeiro — as flores, depois a cerca; a árvore fica. **O cenário não usa nenhuma das seis cores do jogo** (`DD-41`): céu azul-claro, chão e copa em verdes acinzentados, tronco num marrom claro e esbranquiçado, bem longe do marrom dos alvos, contornos em verde mais escuro; uma flor vermelha ou um balão azul no fundo competiria com a instrução. É nele que entram os objetos do cotidiano — a criança ajuda a organizar as coisas do jardim —, que nunca são alvo e não competem com a instrução (`DD-11`). A arte final do jardim não existe (seção 15.3).
 
 # 10 ÁUDIO
 
@@ -419,7 +419,7 @@ O arquivo traz também o resumo da sessão (`DD-29`), por fase jogada: as rodada
 
 **DD-23 — Depois de um erro, a criança tenta de novo até acertar; com o limite de tempo ligado, até ele acabar.** A rodada só fecha no acerto, ou no fim do tempo, quando o jogo mostra qual era o alvo e segue. Rodada correta, para a progressão, é a que acertou na primeira tentativa, para que clicar em tudo até acertar não conte como acerto. Realiza a "opção de nova tentativa" do `GP-02`. Decisão do usuário de 14/10/2026. Aplica-se às seções 2.3, 5.2, 8.1 e 13.3.
 
-**DD-24 — A tarefa usa formas geométricas planas: círculo, quadrado, triângulo e estrela; os objetos do cotidiano ficam no cenário.** Há dois modos, só cor e cor e forma, e nenhum só de forma. No modo só cor, as formas variam e não importam, e a instrução nomeia só a cor. A forma geométrica é um atributo limpo para a segunda dimensão, e quatro silhuetas bem distintas são nomeadas por crianças de 6 anos. Fecha a contradição da fonte entre o exemplo do círculo e os "objetos cotidianos" do domínio cultural. Decisões do usuário de 14/10/2026. Revista no mesmo dia: o conjunto das quatro formas virou recomendação, e o time escolhe dentro da regra (silhueta distinta, nome que a criança conhece), para deixar a criatividade dele livre. Aplica-se às seções 2.2, 9.2 e 9.3.
+**DD-24 — A tarefa usa formas geométricas planas: retângulo, quadrado, círculo, estrela e triângulo; os objetos do cotidiano ficam no cenário.** Há dois modos, só cor e cor e forma, e nenhum só de forma. No modo só cor, as formas variam e não importam, e a instrução nomeia só a cor. A forma geométrica é um atributo limpo para a segunda dimensão, e silhuetas bem distintas são nomeadas por crianças de 6 anos. Fecha a contradição da fonte entre o exemplo do círculo e os "objetos cotidianos" do domínio cultural. Decisões do usuário de 14/10/2026. Revista no mesmo dia: o conjunto das quatro formas virou recomendação, e o time escolhe dentro da regra (silhueta distinta, nome que a criança conhece), para deixar a criatividade dele livre. Revista em 10/11/2026: o time escolheu cinco formas, com o retângulo, e o orientador aprovou. Aplica-se às seções 2.2, 9.2 e 9.3.
 
 **DD-25 — Uma rodada é uma instrução, até o alvo ser achado.** É o que a progressão, o resumo e o exemplo de registro da fonte já supunham. O "20 a 60 segundos por rodada" da fonte saiu. Decisão do usuário de 14/10/2026. Aplica-se às seções 2.1 e 5.1.
 
@@ -427,7 +427,7 @@ O arquivo traz também o resumo da sessão (`DD-29`), por fase jogada: as rodada
 
 **DD-27 — A instrução está sempre em texto, e é falada para quem não lê; nada some sozinho.** O texto segue um modelo só (seção 9.2) e fica na tela a rodada inteira. Com a voz ligada, ela fala quando a rodada abre e a cada repetir. A demonstração só existe no tutorial: nas rodadas ela mostraria a resposta. A "duração de exposição" da fonte saiu. A instrução continua verbal, que é o que a tarefa estuda. Decisões do usuário de 14/10/2026. Aplica-se às seções 1.3, 4, 9.2, 10.2 e 12.
 
-**DD-28 — Seis cores-alvo, e a semelhança em dois graus.** Vermelho, azul, verde, amarelo, laranja e roxo: as quatro da fonte e duas que crianças de 6 anos já nomeiam. O distrator semelhante é uma cor vizinha, de outro nome, e não um tom da mesma cor: assim o alvo continua sendo o único objeto daquela cor. Decisões do usuário de 14/10/2026. Revista no mesmo dia: as seis cores e a tabela das vizinhas viraram recomendação, e o time escolhe dentro da regra e monta a tabela das cores que escolher. Aplica-se às seções 2.2 e 12.
+**DD-28 — Seis cores-alvo, e a semelhança em dois graus.** Vermelho, laranja, marrom, verde, azul e roxo, cores que crianças de 6 anos já nomeiam. O distrator semelhante é uma cor vizinha, de outro nome, e não um tom da mesma cor: assim o alvo continua sendo o único objeto daquela cor. Decisões do usuário de 14/10/2026. Revista no mesmo dia: as seis cores e a tabela das vizinhas viraram recomendação, e o time escolhe dentro da regra e monta a tabela das cores que escolher. Revista em 10/11/2026: o time trocou o amarelo da recomendação (vermelho, azul, verde e amarelo, as quatro da fonte, mais laranja e roxo) pelo marrom e montou a tabela das vizinhas, e o orientador aprovou. Aplica-se às seções 2.2 e 12.
 
 **DD-29 — A criança não vê números; o resumo vai só para o arquivo, que baixa sozinho quando a sessão termina.** Números de erro na frente da criança viram nota. Os cartões do fim da fase não têm números; a tela de fim própria saiu em 14/10/2026, e o cartão da fase 5 diz que a criança terminou todas as fases. O arquivo se grava sem ninguém precisar lembrar, inclusive quando a sessão para no meio. Substitui a tela de resumo da fonte. Revista em 14/10/2026, quando o jogo passou ao navegador (`DD-15`): como uma página não grava numa pasta sozinha, o arquivo baixa automaticamente para a pasta de downloads, uma vez, no voltar da grade; um download por saída de fase seria vários por sessão, e o navegador pede permissão para isso. A cópia no armazenamento do navegador, que guardaria a sessão se a aba fechasse, também saiu: se o download não acontecer, a sessão se perde, e isso é aceito. Decisões do usuário de 14/10/2026. Aplica-se às seções 2.3, 5.3, 11 e 13.
 
@@ -542,7 +542,7 @@ Nenhuma. A ordem das rodadas e o banco que acabava antes da sessão deixaram de 
 | **O arquivo da sessão e as regras das fases**: o formato e onde as regras de cada fase moram | O orientador, com o time | Seções 6, 12 e 13 |
 | **O ajuste das cinco fases** | A curadoria e o playtest, com as garantias da seção 23.10 | Seção 6 |
 | **O pesquisador responsável** | A equipe do projeto | A capa |
-| **A arte e os sons**: a escolha das formas e das cores (seção 2.2), os valores das seis cores, a arte final do jardim, a fonte, as cores e as medidas do laço de jogo (o cartão da instrução, os botões de pausar e sair, os cartões do fim da fase e do tutorial), os ícones, a voz da instrução e os sons do retorno | O time, pelas regras e recomendações deste documento e com o contraste da seção 7.4, com a aprovação do orientador; a voz, gravada por uma pessoa | Seções 2.2, 7.3, 8, 9 e 10 |
+| **A arte e os sons**: a arte final do jardim, a fonte, as cores e as medidas do laço de jogo (o cartão da instrução, os botões de pausar e sair, os cartões do fim da fase e do tutorial), os ícones, a voz da instrução e os sons do retorno | O time, pelas regras e recomendações deste documento e com o contraste da seção 7.4, com a aprovação do orientador; a voz, gravada por uma pessoa | Seções 2.2, 7.3, 8, 9 e 10 |
 
 # 16 OBJETIVO TERAPÊUTICO E EDUCACIONAL
 
@@ -671,11 +671,11 @@ Nenhum requisito abaixo acrescenta decisão. Cada linha é uma afirmação já f
 | RT-01 | Toda rodada apresenta uma instrução e um conjunto de objetos selecionáveis |
 | RT-02 | Em toda rodada, exatamente um objeto satisfaz a instrução, e os outros são distratores |
 | RT-03 | No modo só cor, a instrução nomeia só uma cor, e o alvo é o único objeto daquela cor |
-| RT-73 | No modo só cor, as formas dos objetos de uma rodada se sorteiam entre as quatro, e não são todas iguais |
+| RT-73 | No modo só cor, as formas dos objetos de uma rodada se sorteiam entre as cinco, e não são todas iguais |
 | RT-04 | No modo cor e forma, a instrução nomeia uma forma e uma cor, e o alvo é o único objeto que tem as duas |
 | RT-05 | O modo cor e forma só aparece nas fases que o usam |
 | RT-59 | As fases podem usar o modo cor e forma |
-| RT-72 | Os objetos são quatro formas planas, que se distinguem pela silhueta e que uma criança de 6 anos sabe nomear |
+| RT-72 | Os objetos são cinco formas planas, que se distinguem pela silhueta e que uma criança de 6 anos sabe nomear |
 | RT-74 | As cores dos objetos são seis, com nomes diferentes entre si, e nenhuma delas aparece no cenário |
 | RT-75 | A semelhança dos distratores tem dois graus, vizinhos e distintos, pela tabela das vizinhas e das distintas das cores escolhidas (seção 2.2); no modo só cor, todo distrator tem outra cor, com outro nome, e no modo cor e forma a semelhança vale para os distratores de outra cor |
 | RT-06 | Selecionar o objeto que satisfaz a instrução conta como acerto, e selecionar qualquer outro conta como seleção incorreta |
