@@ -5,7 +5,7 @@ doc_extenso: Game Design Document
 titulo: Caça às Cores
 subtitulo: Busca visual e resposta a instruções, para crianças em idade escolar
 versao: v1.1
-mudanca: cinco formas, com o retângulo, e o marrom no lugar do amarelo, pela escolha do time (seção 2.2); as figuras dos menus passam para a pasta visual-menus
+mudanca: cinco formas, com o retângulo, e o marrom no lugar do amarelo, pela escolha do time (seção 2.2); o tronco do cenário passa a marrom claro, para não se confundir com o alvo marrom; as figuras dos menus passam para a pasta visual-menus
 data: 10/11/2026
 projeto_vinculado: Caça às Cores
 organizacao: CIATec
@@ -288,7 +288,7 @@ Quatro regras governam o retorno.
 
 ## 9.3 Temas
 
-**Um cenário só, calmo, o mesmo em todas as rodadas**: tons suaves, pouco detalhe, nada que se mova, com as formas sobre ele. **O céu e o chão cobrem a tela inteira em qualquer proporção, e as peças do cenário ficam presas nos cantos de baixo**: elas crescem pelo lado curto da tela, não se esticam quando ela gira, e, se a tela for estreita demais, a menos importante some primeiro — as flores, depois a cerca; a árvore fica. **O cenário não usa nenhuma das seis cores do jogo**: céu azul-claro, chão e copa em verdes acinzentados, tronco marrom, contornos em verde mais escuro; uma flor vermelha ou um balão azul no fundo competiria com a instrução. É nele que entram os objetos do cotidiano — a criança ajuda a organizar as coisas do jardim —, que nunca são alvo e não competem com a instrução. A arte final do jardim não existe (seção 14).
+**Um cenário só, calmo, o mesmo em todas as rodadas**: tons suaves, pouco detalhe, nada que se mova, com as formas sobre ele. **O céu e o chão cobrem a tela inteira em qualquer proporção, e as peças do cenário ficam presas nos cantos de baixo**: elas crescem pelo lado curto da tela, não se esticam quando ela gira, e, se a tela for estreita demais, a menos importante some primeiro — as flores, depois a cerca; a árvore fica. **O cenário não usa nenhuma das seis cores do jogo**: céu azul-claro, chão e copa em verdes acinzentados, tronco num marrom claro e esbranquiçado, bem longe do marrom dos alvos, contornos em verde mais escuro; uma flor vermelha ou um balão azul no fundo competiria com a instrução. É nele que entram os objetos do cotidiano — a criança ajuda a organizar as coisas do jardim —, que nunca são alvo e não competem com a instrução. A arte final do jardim não existe (seção 14).
 
 # 10 ÁUDIO
 
