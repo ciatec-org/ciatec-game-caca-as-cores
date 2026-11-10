@@ -64,7 +64,7 @@ A tarefa permite observar a resposta a estímulos e instruções em condições 
 
 **As cores são seis**, com nomes diferentes entre si e que a criança conhece. Nenhuma delas aparece no cenário, e todas têm o contraste da seção 7.4 com ele. Os valores ficam num lugar só, que se ajusta sem mexer no código.
 
-**O time escolheu as cinco formas e as seis cores**, dentro destas regras, e o orientador aprovou a escolha. Os valores das cores e o contraste de cada uma com o cenário estão em [`cores.md`](cores.md), e os exemplos deste documento usam esta escolha.
+**O time escolheu as cinco formas e as seis cores**, dentro destas regras, e o orientador aprovou a escolha. Os exemplos deste documento usam esta escolha.
 
 > **A escolha.** As formas: retângulo, quadrado, círculo, estrela e triângulo. As cores: vermelho, laranja, marrom, verde, azul e roxo.
 
