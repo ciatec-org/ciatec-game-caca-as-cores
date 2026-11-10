@@ -4,9 +4,9 @@ doc: GDD
 doc_extenso: Game Design Document
 titulo: Caça às Cores
 subtitulo: Busca visual e resposta a instruções, para crianças em idade escolar
-versao: v1.0
-mudanca: 
-data: 14/10/2026
+versao: v1.1
+mudanca: cinco formas, com o retângulo, e o marrom no lugar do amarelo, pela escolha do time (seção 2.2); as figuras dos menus passam para a pasta visual-menus
+data: 10/11/2026
 projeto_vinculado: Caça às Cores
 organizacao: CIATec
 triple_diamond: 
@@ -15,7 +15,7 @@ pesquisador: [a definir]
 tipo: requisitos
 status: rascunho
 data_criacao: 14/10/2026
-data_atualizacao: 14/10/2026
+data_atualizacao: 10/11/2026
 ---
 
 # 1 CONCEITO DO JOGO
@@ -60,29 +60,29 @@ A tarefa permite observar a resposta a estímulos e instruções em condições 
 
 ## 2.2 Os objetos e os dois modos
 
-**Os objetos da tarefa são quatro formas geométricas planas**, que se distinguem pela silhueta, mesmo pequenas, e que uma criança de 6 anos sabe nomear. Os objetos do cotidiano ficam no cenário, e nunca são alvo.
+**Os objetos da tarefa são cinco formas geométricas planas**, que se distinguem pela silhueta, mesmo pequenas, e que uma criança de 6 anos sabe nomear. Os objetos do cotidiano ficam no cenário, e nunca são alvo.
 
 **As cores são seis**, com nomes diferentes entre si e que a criança conhece. Nenhuma delas aparece no cenário, e todas têm o contraste da seção 7.4 com ele. Os valores ficam num lugar só, que se ajusta sem mexer no código.
 
-**O time escolhe as quatro formas e as seis cores**, dentro destas regras, e o orientador aprova a escolha antes de o jogo usá-las. Os exemplos deste documento usam a recomendação abaixo.
+**O time escolheu as cinco formas e as seis cores**, dentro destas regras, e o orientador aprovou a escolha. Os valores das cores e o contraste de cada uma com o cenário estão em [`cores.md`](cores.md), e os exemplos deste documento usam esta escolha.
 
-> **Recomendação.** As formas: círculo, quadrado, triângulo e estrela. As cores: vermelho, azul, verde, amarelo, laranja e roxo, com os valores que passarem no contraste.
+> **A escolha.** As formas: retângulo, quadrado, círculo, estrela e triângulo. As cores: vermelho, laranja, marrom, verde, azul e roxo.
 
 **Há dois modos, e só dois**:
 
-- **Só cor.** A instrução nomeia só a cor ("Encontre o vermelho"), e o alvo é o único objeto daquela cor. As formas se sorteiam entre as quatro, e não são todas iguais; elas não importam: a criança acerta pela cor.
+- **Só cor.** A instrução nomeia só a cor ("Encontre o vermelho"), e o alvo é o único objeto daquela cor. As formas se sorteiam entre as cinco, e não são todas iguais; elas não importam: a criança acerta pela cor.
 - **Cor e forma.** A instrução nomeia a forma e a cor ("Encontre o quadrado azul"), e o alvo é o único objeto que tem as duas. Para a forma pesar, há distratores com a mesma cor e outra forma, e com a mesma forma e outra cor (`G-05`).
 
-**A semelhança dos distratores tem dois graus**: vizinhos, das duas cores mais parecidas com a cor do alvo — as que ficam ao lado dela no círculo das cores —, e distintos, das outras três. **O time monta a tabela das vizinhas e das distintas para as cores que escolher**, no formato da tabela abaixo, que é a das cores recomendadas. No modo só cor, todo distrator tem outra cor, com outro nome. No modo cor e forma, um distrator tem a cor do alvo e outra forma (`G-05`), e os de outra cor seguem a semelhança da fase.
+**A semelhança dos distratores tem dois graus**: vizinhos, das duas cores mais parecidas com a cor do alvo — as que ficam ao lado dela no círculo das cores —, e distintos, das outras três. **O time montou a tabela das vizinhas e das distintas para as cores que escolheu**, e ela é a tabela abaixo. No modo só cor, todo distrator tem outra cor, com outro nome. No modo cor e forma, um distrator tem a cor do alvo e outra forma (`G-05`), e os de outra cor seguem a semelhança da fase.
 
 | Cor do alvo | Cores vizinhas | Cores distintas |
 | --- | --- | --- |
-| Vermelho | Laranja e roxo | Amarelo, verde e azul |
-| Laranja | Vermelho e amarelo | Verde, azul e roxo |
-| Amarelo | Laranja e verde | Vermelho, azul e roxo |
-| Verde | Amarelo e azul | Vermelho, laranja e roxo |
-| Azul | Verde e roxo | Vermelho, laranja e amarelo |
-| Roxo | Azul e vermelho | Laranja, amarelo e verde |
+| Vermelho | Laranja e roxo | Marrom, verde e azul |
+| Laranja | Vermelho e marrom | Verde, azul e roxo |
+| Marrom | Laranja e verde | Vermelho, azul e roxo |
+| Verde | Marrom e azul | Vermelho, laranja e roxo |
+| Azul | Verde e roxo | Vermelho, laranja e marrom |
+| Roxo | Azul e vermelho | Laranja, marrom e verde |
 
 ## 2.3 Fechamento da rodada, da fase e da sessão
 
@@ -284,7 +284,7 @@ Quatro regras governam o retorno.
 
 **As formas são planas e de contorno nítido**, nas seis cores.
 
-**A instrução segue um modelo só**: no modo só cor, "Encontre o \<cor\>"; no modo cor e forma, "Encontre o \<forma\> \<cor\>", com o artigo e a cor concordando com o gênero da forma — com as recomendadas, "Encontre a estrela vermelha", e azul, verde e laranja não mudam. O texto fica na tela a rodada inteira: nada some sozinho.
+**A instrução segue um modelo só**: no modo só cor, "Encontre o \<cor\>"; no modo cor e forma, "Encontre o \<forma\> \<cor\>", com o artigo e a cor concordando com o gênero da forma — com as escolhidas, "Encontre a estrela vermelha", e azul, verde, laranja e marrom não mudam. O texto fica na tela a rodada inteira: nada some sozinho.
 
 ## 9.3 Temas
 
@@ -374,7 +374,7 @@ O que o jogo ainda não tem, ou o que se decide durante o desenvolvimento. O res
 | --- | --- |
 | **O arquivo da sessão e as regras das fases**: o formato e onde as regras de cada fase moram | O orientador, com o time |
 | **O ajuste das cinco fases** | A curadoria e o playtest, com as garantias da seção 15.10 |
-| **A arte e os sons**: a escolha das formas e das cores (seção 2.2), os valores das seis cores, a arte final do jardim, a fonte, as cores e as medidas do laço de jogo (o cartão da instrução, os botões de pausar e sair, os cartões do fim da fase e do tutorial), os ícones, a voz da instrução e os sons do retorno | O time, pelas regras e recomendações deste documento e com o contraste da seção 7.4, com a aprovação do orientador; a voz, gravada por uma pessoa |
+| **A arte e os sons**: a arte final do jardim, a fonte, as cores e as medidas do laço de jogo (o cartão da instrução, os botões de pausar e sair, os cartões do fim da fase e do tutorial), os ícones, a voz da instrução e os sons do retorno | O time, pelas regras e recomendações deste documento e com o contraste da seção 7.4, com a aprovação do orientador; a voz, gravada por uma pessoa |
 | **A base do tempo de resposta**: os objetos aparecerem ou o fim da voz | Os pesquisadores, com o plano de análise |
 | **Os valores de partida** | Playtest |
 
@@ -391,11 +391,11 @@ Cada linha é uma afirmação das seções acima, escrita na forma que se confer
 | RT-01 | Toda rodada apresenta uma instrução e um conjunto de objetos selecionáveis |
 | RT-02 | Em toda rodada, exatamente um objeto satisfaz a instrução, e os outros são distratores |
 | RT-03 | No modo só cor, a instrução nomeia só uma cor, e o alvo é o único objeto daquela cor |
-| RT-73 | No modo só cor, as formas dos objetos de uma rodada se sorteiam entre as quatro, e não são todas iguais |
+| RT-73 | No modo só cor, as formas dos objetos de uma rodada se sorteiam entre as cinco, e não são todas iguais |
 | RT-04 | No modo cor e forma, a instrução nomeia uma forma e uma cor, e o alvo é o único objeto que tem as duas |
 | RT-05 | O modo cor e forma só aparece nas fases que o usam |
 | RT-59 | As fases podem usar o modo cor e forma |
-| RT-72 | Os objetos são quatro formas planas, que se distinguem pela silhueta e que uma criança de 6 anos sabe nomear |
+| RT-72 | Os objetos são cinco formas planas, que se distinguem pela silhueta e que uma criança de 6 anos sabe nomear |
 | RT-74 | As cores dos objetos são seis, com nomes diferentes entre si, e nenhuma delas aparece no cenário |
 | RT-75 | A semelhança dos distratores tem dois graus, vizinhos e distintos, pela tabela das vizinhas e das distintas das cores escolhidas (seção 2.2); no modo só cor, todo distrator tem outra cor, com outro nome, e no modo cor e forma a semelhança vale para os distratores de outra cor |
 | RT-06 | Selecionar o objeto que satisfaz a instrução conta como acerto, e selecionar qualquer outro conta como seleção incorreta |

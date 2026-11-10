@@ -4,9 +4,9 @@ doc: Plano de trabalho
 doc_extenso: Agile Backlog Document
 titulo: Caça às Cores
 subtitulo: Plano de trabalho para uma equipe de iniciação científica de três pessoas
-versao: v1.2
-mudanca: 
-data: 14/10/2026
+versao: v1.3
+mudanca: cinco formas, pela escolha do time (GDD v1.1); o material dos menus em Docs/visual-menus
+data: 10/11/2026
 projeto_vinculado: Caça às Cores
 organizacao: CIATec
 triple_diamond: 
@@ -15,7 +15,7 @@ pesquisador: [a definir]
 tipo: backlog
 status: rascunho
 data_criacao: 14/10/2026
-data_atualizacao: 14/10/2026
+data_atualizacao: 10/11/2026
 ---
 
 # 1 COMO USAR ESTE PLANO
@@ -260,19 +260,19 @@ O coração do jogo: a instrução, as formas, o clique, o acerto e o erro, e a 
 
 **Requisitos do GDD que ela realiza:**
 
-- `RT-72` — Os objetos são quatro formas planas, que se distinguem pela silhueta e que uma criança de 6 anos sabe nomear
+- `RT-72` — Os objetos são cinco formas planas, que se distinguem pela silhueta e que uma criança de 6 anos sabe nomear
 - `RT-74` — As cores dos objetos são seis, com nomes diferentes entre si, e nenhuma delas aparece no cenário
 
 **Cenários de aceite:**
 
 - Dado uma rodada de 3 objetos, quando ela abre, então aparecem três formas planas, de cores diferentes.
-- Dado as quatro formas nas seis cores, quando o time as põe lado a lado, então cada forma se distingue pela silhueta e cada cor pelo nome.
+- Dado as cinco formas nas seis cores, quando o time as põe lado a lado, então cada forma se distingue pela silhueta e cada cor pelo nome.
 - Dado a escolha do time, quando o orientador a vê, então ela cumpre as regras da seção 2.2, tem a tabela das vizinhas e das distintas, e está aprovada.
 
 | Task | O que fazer | Horas e camada |
 | --- | --- | --- |
-| T-02.1.1 | Escolher as quatro formas e as seis cores pelas regras da seção 2.2 (ou ficar com as recomendadas), montar a tabela das vizinhas e das distintas, pôr as cores no asset e aprovar com o orientador | 2 h · ux |
-| T-02.1.2 | Desenhar os sprites brancos das quatro formas escolhidas e os contornos, num editor de imagem | 2 h · assets |
+| T-02.1.1 | Escolher as cinco formas e as seis cores pelas regras da seção 2.2, montar a tabela das vizinhas e das distintas, pôr as cores no asset e aprovar com o orientador | 2 h · ux |
+| T-02.1.2 | Desenhar os sprites brancos das cinco formas escolhidas e os contornos, num editor de imagem | 2 h · assets |
 | T-02.1.3 | Criar o prefab Forma: sprite + contorno + cor vinda do asset de configuração | 2 h · presentation |
 | T-02.1.4 | Tela de teste com as 4 formas nas 6 cores, para conferir | 1 h · validação |
 
@@ -293,7 +293,7 @@ O coração do jogo: a instrução, as formas, o clique, o acerto e o erro, e a 
 **Cenários de aceite:**
 
 - Dado uma rodada do modo só cor com alvo vermelho, quando ela abre, então o cartão diz 'Encontre o vermelho'.
-- Dado o modo cor e forma com uma forma de nome feminino, quando a rodada abre, então o artigo e a cor concordam com ela (com as recomendadas: 'Encontre a estrela vermelha').
+- Dado o modo cor e forma com uma forma de nome feminino, quando a rodada abre, então o artigo e a cor concordam com ela (com as escolhidas: 'Encontre a estrela vermelha').
 
 | Task | O que fazer | Horas e camada |
 | --- | --- | --- |
@@ -542,7 +542,7 @@ O gerador que sorteia cada rodada pelas regras da fase, as cinco fases, o portã
 **Requisitos do GDD que ela realiza:**
 
 - `RT-139` — Cada rodada é sorteada na hora, pelas regras da fase, e a cor-alvo não se repete em duas rodadas seguidas
-- `RT-73` — No modo só cor, as formas dos objetos de uma rodada se sorteiam entre as quatro, e não são todas iguais
+- `RT-73` — No modo só cor, as formas dos objetos de uma rodada se sorteiam entre as cinco, e não são todas iguais
 - `RT-75` — A semelhança dos distratores tem dois graus, vizinhos e distintos, pela tabela das vizinhas e das distintas das cores escolhidas (seção 2.2); no modo só cor, todo distrator tem outra cor, com outro nome, e no modo cor e forma a semelhança vale para os distratores de outra cor
 - `RT-07` — O número de objetos da rodada é o da fase, e os distratores são todos eles menos o alvo
 - `RT-09` — A semelhança dos distratores é a da fase, e não muda o número de objetos
