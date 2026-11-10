@@ -200,16 +200,16 @@ A duração é ilustrativa, e não validada clinicamente: cada fase leva cerca d
 
 **Os menus emulam o visual dos menus dos pacotes CIATEC, e o laço de jogo tem o tema do jogo**. O início, as configurações e a grade de fases reproduzem a moldura dos menus da plataforma — a barra com o símbolo e a marca CIATEC, e o painel com borda e preenchimento translúcido, por trás do qual aparece o jardim do jogo —, com as cores e as medidas da pasta `visual-menus`. Os menus só têm o tema claro. **O jogo não usa o M3Kit:** reproduz o visual com os próprios meios, com o símbolo, as fontes, as cores e as medidas da pasta `visual-menus`. O tutorial, as rodadas, o retorno, a pausa e o cartão do fim da fase têm a arte e o tema do jogo. A barra só tem o símbolo e a marca e, na grade de fases, o voltar.
 
-![](figuras/menu-inicio.png)
+![](visual-menus/menu-inicio.png)
 
 **A tela de configurações** é do mediador, e vem depois do início. Nela se digitam o código pseudônimo da criança, sem o qual o Começar não segue e o campo diz "Digite o código da criança (não o nome).", porque todo evento do registro leva o código, e se escolhem as fases liberadas, o tempo limite, o áudio, a voz e a mãozinha do tutorial. Os padrões são fases liberadas até a 1, tempo limite desligado, áudio ligado, voz ligada e mãozinha ligada. Quando a janela não comporta todas as opções, a tela rola, e o Começar fica fixo embaixo: em retrato, uma coluna, com o rótulo em cima do seletor; em paisagem, duas colunas, com o rótulo ao lado. Os rótulos são os mesmos nas duas: Código da criança, Fases liberadas até, Tempo limite, Áudio, Voz na instrução e Mãozinha no tutorial.
 
-![](figuras/janela-menus.png)
+![](visual-menus/janela-menus.png)
 
 
 **A grade de fases** segue o menu de fases dos pacotes CIATEC: as cinco fases em cards de 140 dp ou mais, que preenchem a largura do painel. O card mostra o número, uma miniatura do que a fase tem — quantas formas, se só cor ou cor e forma — e uma linha curta para o mediador. A liberada tem a borda acesa, a concluída tem um ✓ e pode ser jogada de novo, a bloqueada tem um cadeado e, tocada, faz aparecer numa linha abaixo da grade "Passe a fase N para liberar a fase N + 1.", que fica até o próximo toque. Em retrato, os cards ficam em duas colunas; em paisagem, os cinco numa linha. O voltar da barra volta ao início.
 
-![](figuras/menu-fases.png)
+![](visual-menus/menu-fases.png)
 
 **A tela da rodada** traz a instrução em texto, os botões de pausa e de saída e os objetos sobre o cenário. **O arranjo dela é do time**, dentro destas regras: a instrução e os dois botões ficam sempre visíveis; os objetos não se sobrepõem e ficam longe dos botões; o arranjo se reorganiza com a orientação; e redimensionar a janela no meio da rodada reorganiza a tela sem perder nada. O laço de jogo pode ter um visual bem diferente dos menus.
 

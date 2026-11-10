@@ -422,7 +422,7 @@ O início, as configurações do mediador e a grade de fases, emulando a moldura
 
 | Task | O que fazer | Horas e camada |
 | --- | --- | --- |
-| T-03.1.1 | Criar o prefab Barra e o prefab Painel com o símbolo, as fontes e as medidas de documentation/visual-menus, conferindo com as figuras menu-*.png | 2 h · presentation |
+| T-03.1.1 | Criar o prefab Barra e o prefab Painel com o símbolo, as fontes e as medidas de Docs/visual-menus, conferindo com as figuras menu-*.png da mesma pasta | 2 h · presentation |
 | T-03.1.2 | Pôr as cores do tema claro (tabela de visual-menus/README.md) no asset de configuração e usá-las nos prefabs | 1 h · presentation |
 
 ## 4.4.2 US-03.2 — A tela de início
