@@ -10,7 +10,7 @@ public class ControladorDeJogo : MonoBehaviour
         if (configJogo != null && placeholderForma != null)
         {
             // Aplica a cor vermelha do asset ao placeholder
-            placeholderForma.color = configJogo.corVermelho;
+            placeholderForma.color = configJogo.ObterCor(CorDoJogo.Vermelho);
 
             // Imprime um dos tempos no Console para provar que está lendo
             Debug.Log($"Configuração carregada! O tempo limite da rodada é: {configJogo.tempoLimiteRodada} segundos.");

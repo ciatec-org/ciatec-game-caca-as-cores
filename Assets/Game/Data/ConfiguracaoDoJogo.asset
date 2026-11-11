@@ -12,12 +12,17 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b194e24aa02d35ffb956a41a975e9769, type: 3}
   m_Name: ConfiguracaoDoJogo
   m_EditorClassIdentifier: Assembly-CSharp::ConfiguracaoDoJogo
-  corVermelho: {r: 1, g: 0, b: 0, a: 1}
-  corAzul: {r: 0, g: 0, b: 1, a: 1}
-  corVerde: {r: 0, g: 1, b: 0, a: 1}
-  corAmarelo: {r: 1, g: 0.92156863, b: 0.015686275, a: 1}
-  corLaranja: {r: 1, g: 0.5, b: 0, a: 1}
-  corRoxo: {r: 0.5, g: 0, b: 0.5, a: 1}
+  corVermelho: {fileID: 11400000, guid: 0ba577b47f3d1af1d916d9dd05fa99b3, type: 2}
+  corAzul: {fileID: 11400000, guid: 9a2985ade47e6d6d88dea858da75470f, type: 2}
+  corVerde: {fileID: 11400000, guid: 1cb4ff26a6768d446ba2186bcb42c6a3, type: 2}
+  corMarrom: {fileID: 11400000, guid: a6a2482d88663e2f291fb2f98396949e, type: 2}
+  corLaranja: {fileID: 11400000, guid: 9efee86a4f6c286b282f18d537b3a89f, type: 2}
+  corRoxo: {fileID: 11400000, guid: 356d11af750f29017b9abc7b556db17a, type: 2}
+  spriteCirculo: {fileID: 21300000, guid: bb4024f2b2037a1fa93773744f02404d, type: 3}
+  spriteQuadrado: {fileID: 21300000, guid: 4fc0a452c612cd09fb94b317007dfa1d, type: 3}
+  spriteTriangulo: {fileID: 21300000, guid: 3927abfc48276c491a09fcaacba4f6df, type: 3}
+  spriteEstrela: {fileID: 21300000, guid: 3118c5beb32d2b324bcd7efdcb4411a2, type: 3}
+  spriteRetangulo: {fileID: 21300000, guid: d6c47f4aedec155dab7188e7cf8d031d, type: 3}
   tempoCrescimentoAcerto: 0.3
   tempoBrilhosAcerto: 0.6
   esperaTrocaRodada: 0.5
