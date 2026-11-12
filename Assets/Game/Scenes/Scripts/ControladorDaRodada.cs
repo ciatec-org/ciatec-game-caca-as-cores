@@ -93,7 +93,7 @@ public class ControladorDaRodada : MonoBehaviour
         rect.sizeDelta = new Vector2(tamanhoDaForma, tamanhoDaForma);
 
         var imagem = go.GetComponent<Image>();
-        imagem.sprite = FabricaDeFormas.Obter(objeto.Forma);
+        imagem.sprite = FabricaDeFormas.Obter(objeto.Forma, configuracao);
         imagem.color = configuracao.ObterCor(objeto.Cor);
 
         // O índice vem do próprio objeto, e não digitado à mão.

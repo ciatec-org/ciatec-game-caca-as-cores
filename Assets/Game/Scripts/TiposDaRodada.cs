@@ -3,21 +3,23 @@
 /// <summary>As seis cores dos objetos (GDD 2.2, RT-74).</summary>
 public enum CorDoJogo
 {
-    Vermelho,
-    Azul,
-    Verde,
-    Amarelo,
-    Laranja,
-    Roxo
+    Vermelho = 0,
+    Azul = 1,
+    Verde = 2,
+    // O índice 3 passa de amarelo a marrom com a paleta aprovada no SGDD v2.12.
+    Marrom = 3,
+    Laranja = 4,
+    Roxo = 5
 }
 
-/// <summary>As quatro formas dos objetos (GDD 2.2, RT-72).</summary>
+/// <summary>As cinco formas dos objetos (GDD 2.2, RT-72).</summary>
 public enum FormaDoJogo
 {
-    Circulo,
-    Quadrado,
-    Triangulo,
-    Estrela
+    Circulo = 0,
+    Quadrado = 1,
+    Triangulo = 2,
+    Estrela = 3,
+    Retangulo = 4
 }
 
 /// <summary>Os dois modos da rodada, e só dois (GDD 2.2).</summary>

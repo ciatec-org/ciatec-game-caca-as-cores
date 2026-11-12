@@ -25,6 +25,7 @@ public static class InstrucaoDaRodada
             case FormaDoJogo.Quadrado:  return "quadrado";
             case FormaDoJogo.Triangulo: return "triângulo";
             case FormaDoJogo.Estrela:   return "estrela";
+            case FormaDoJogo.Retangulo: return "retângulo";
             default: throw new ArgumentOutOfRangeException(nameof(forma), forma, "Forma sem nome na instrução.");
         }
     }
@@ -34,7 +35,7 @@ public static class InstrucaoDaRodada
         switch (cor)
         {
             case CorDoJogo.Vermelho: return feminino ? "vermelha" : "vermelho";
-            case CorDoJogo.Amarelo:  return feminino ? "amarela" : "amarelo";
+            case CorDoJogo.Marrom:   return "marrom";
             case CorDoJogo.Roxo:     return feminino ? "roxa" : "roxo";
             case CorDoJogo.Azul:     return "azul";
             case CorDoJogo.Verde:    return "verde";

@@ -129,7 +129,7 @@ public class RodadaTests
             new ObjetoDaRodada(CorDoJogo.Verde, FormaDoJogo.Quadrado),
             new ObjetoDaRodada(CorDoJogo.Azul, FormaDoJogo.Quadrado),
             new ObjetoDaRodada(CorDoJogo.Roxo, FormaDoJogo.Triangulo),
-            new ObjetoDaRodada(CorDoJogo.Amarelo, FormaDoJogo.Estrela),
+            new ObjetoDaRodada(CorDoJogo.Marrom, FormaDoJogo.Estrela),
         });
 
         // O acerto fecha a rodada, então cada índice é avaliado numa rodada nova.
@@ -324,5 +324,26 @@ public class RodadaTests
         Assert.AreEqual(ResultadoDaSelecao.SelecaoIncorreta, rodada.Avaliar(0));
         Assert.AreEqual(ResultadoDaSelecao.Acerto, rodada.Avaliar(1));
         Assert.AreEqual(FechamentoDaRodada.ComErro, rodada.Fechamento);
+    }
+
+    [Test]
+    public void RetanguloMarrom_ExigeCorEFormaEPreservaTentativasEFechamento()
+    {
+        var rodada = Rodada.CriarCorEForma(CorDoJogo.Marrom, FormaDoJogo.Retangulo, new[]
+        {
+            new ObjetoDaRodada(CorDoJogo.Marrom, FormaDoJogo.Quadrado),
+            new ObjetoDaRodada(CorDoJogo.Azul, FormaDoJogo.Retangulo),
+            new ObjetoDaRodada(CorDoJogo.Marrom, FormaDoJogo.Retangulo),
+        });
+
+        Assert.AreEqual(2, rodada.IndiceDoAlvo);
+        Assert.AreEqual(ResultadoDaSelecao.SelecaoIncorreta, rodada.Avaliar(0));
+        Assert.AreEqual(ResultadoDaSelecao.SelecaoIncorreta, rodada.Avaliar(1));
+        Assert.IsTrue(rodada.Aberta);
+        Assert.AreEqual(ResultadoDaSelecao.Acerto, rodada.Avaliar(2));
+        Assert.AreEqual(3, rodada.Tentativas);
+        Assert.AreEqual(FechamentoDaRodada.ComErro, rodada.Fechamento);
+        Assert.Throws<InvalidOperationException>(() => rodada.Avaliar(2));
+        Assert.AreEqual(3, rodada.Tentativas);
     }
 }
