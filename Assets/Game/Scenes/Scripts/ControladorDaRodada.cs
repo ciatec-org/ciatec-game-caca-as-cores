@@ -1,11 +1,12 @@
 using System;
+using System.Collections;
 using TMPro;
 using UnityEngine;
 using UnityEngine.EventSystems;
 using UnityEngine.UI;
 
 /// <summary>
-/// Controlador fino da rodada (US-02.3, T-02.3.2 e T-02.3.3).
+/// Controlador fino da rodada (US-02.3, T-02.3.2 e T-02.3.3; US-02.5, T-02.5.1 e T-02.5.2).
 ///
 /// - Põe os objetos da <see cref="Rodada"/> numa fileira simples, provisória até o layout do EP-06.
 /// - Liga o clique (ou toque) de cada forma à regra: <see cref="Rodada.Avaliar"/>.
@@ -15,20 +16,26 @@ using UnityEngine.UI;
 /// (Button), um gesto só: sem arrastar, segurar nem duplo clique (RT-11, RT-12),
 /// e não usa câmera, microfone nem outro sensor (RT-13).
 ///
-/// PLACEHOLDER: a rodada vem de um exemplo escolhido no Inspector até o gerador de rodadas existir.
+/// Depois do acerto, a rodada seguinte abre sozinha, passado o tempo de espera da configuração
+/// (500 ms, RT-38). Nesse intervalo a rodada antiga continua na tela, já fechada, e tocar num objeto
+/// não faz nada (RT-77): quem barra é <see cref="Rodada.Aberta"/>.
+///
+/// PLACEHOLDER: as rodadas vêm de uma sequência fixa de teste (<see cref="RodadasFixasDeTeste"/>)
+/// até o gerador de rodadas existir; o Inspector escolhe só por qual delas a sessão começa.
 /// </summary>
 public class ControladorDaRodada : MonoBehaviour
 {
+    // Os dois valores são as duas primeiras rodadas de RodadasFixasDeTeste (posições 0 e 1).
     public enum RodadaDeExemplo
     {
-        SoCorVermelho,
-        CorEFormaEstrelaVermelha
+        SoCorVermelho = 0,
+        CorEFormaEstrelaVermelha = 1
     }
 
     [Header("Referências")]
     [SerializeField] private ConfiguracaoDoJogo configuracao;
 
-    [Header("Rodada de exemplo (provisório)")]
+    [Header("Primeira rodada da sequência fixa de teste (provisório)")]
     [SerializeField] private RodadaDeExemplo rodadaDeExemplo = RodadaDeExemplo.SoCorVermelho;
 
     [Header("Fileira provisória")]
@@ -44,6 +51,12 @@ public class ControladorDaRodada : MonoBehaviour
     private TextMeshProUGUI textoInstrucao;
     private TextMeshProUGUI textoResultado;
 
+    // Posição, na sequência fixa de teste, da próxima rodada a abrir.
+    private int posicaoNaSequencia;
+
+    // Diferente de null enquanto a troca depois do acerto está agendada.
+    private Coroutine trocaPendente;
+
     private void Start()
     {
         if (configuracao == null)
@@ -56,7 +69,10 @@ public class ControladorDaRodada : MonoBehaviour
             Debug.LogWarning("ControladorDaRodada: não há EventSystem na cena, e sem ele o clique não chega.", this);
 
         if (RodadaAtual == null)
-            IniciarRodada(MontarRodadaDeExemplo());
+        {
+            posicaoNaSequencia = (int)rodadaDeExemplo;
+            IniciarRodada(CriarProximaDaSequencia());
+        }
     }
 
     /// <summary>Mostra a rodada na tela e liga cada forma à regra.</summary>
@@ -66,6 +82,13 @@ public class ControladorDaRodada : MonoBehaviour
             throw new ArgumentNullException(nameof(rodada));
 
         string instrucao = InstrucaoDaRodada.Montar(rodada);
+
+        // Uma rodada aberta por fora cancela a troca agendada, para não abrir duas.
+        if (trocaPendente != null)
+        {
+            StopCoroutine(trocaPendente);
+            trocaPendente = null;
+        }
 
         if (fileira == null)
             CriarInterface();
@@ -104,7 +127,7 @@ public class ControladorDaRodada : MonoBehaviour
     private void AoSelecionar(int indice)
     {
         // Depois de um erro a rodada continua aberta e o clique é aceito (RT-41).
-        // Depois do acerto ela está fechada: tocar num objeto não faz nada (RT-77).
+        // Do acerto até a rodada nova abrir ela está fechada: tocar num objeto não faz nada (RT-77).
         if (!RodadaAtual.Aberta)
             return;
 
@@ -124,34 +147,35 @@ public class ControladorDaRodada : MonoBehaviour
             Debug.Log($"[Rodada] fechada: {classificacao} | tentativas: {RodadaAtual.Tentativas}");
         }
 
+        // RT-38: depois do acerto a rodada seguinte abre sozinha, sem outra ação da criança.
+        if (resultado == ResultadoDaSelecao.Acerto)
+            trocaPendente = StartCoroutine(AbrirProximaRodadaDepoisDaEspera());
+
         SelecaoAvaliada?.Invoke(indice, resultado);
     }
 
-    // ---------- Rodadas de exemplo ----------
-
-    private Rodada MontarRodadaDeExemplo()
+    private IEnumerator AbrirProximaRodadaDepoisDaEspera()
     {
-        switch (rodadaDeExemplo)
-        {
-            case RodadaDeExemplo.CorEFormaEstrelaVermelha:
-                // "Encontre a estrela vermelha": distratores com a mesma cor e com a mesma forma (G-05).
-                return Rodada.CriarCorEForma(CorDoJogo.Vermelho, FormaDoJogo.Estrela, new[]
-                {
-                    new ObjetoDaRodada(CorDoJogo.Vermelho, FormaDoJogo.Quadrado),
-                    new ObjetoDaRodada(CorDoJogo.Vermelho, FormaDoJogo.Estrela),
-                    new ObjetoDaRodada(CorDoJogo.Azul, FormaDoJogo.Estrela),
-                    new ObjetoDaRodada(CorDoJogo.Verde, FormaDoJogo.Circulo),
-                });
+        float espera = configuracao.esperaTrocaRodada;
+        Debug.Log($"[Rodada] próxima rodada em {espera * 1000f:0} ms");
 
-            default:
-                // "Encontre o vermelho"
-                return Rodada.CriarSoCor(CorDoJogo.Vermelho, new[]
-                {
-                    new ObjetoDaRodada(CorDoJogo.Azul, FormaDoJogo.Circulo),
-                    new ObjetoDaRodada(CorDoJogo.Vermelho, FormaDoJogo.Quadrado),
-                    new ObjetoDaRodada(CorDoJogo.Verde, FormaDoJogo.Estrela),
-                });
-        }
+        yield return new WaitForSeconds(espera);
+
+        trocaPendente = null; // antes de abrir, para IniciarRodada não parar esta própria rotina
+        Rodada proxima = CriarProximaDaSequencia();
+        IniciarRodada(proxima);
+        Debug.Log($"[Rodada] nova rodada: {InstrucaoDaRodada.Montar(proxima)}");
+    }
+
+    // ---------- Sequência fixa de teste ----------
+
+    // Cada chamada devolve uma Rodada nova (ela guarda tentativas e fechamento, então não se reaproveita)
+    // e, ao chegar ao fim da sequência, volta ao começo.
+    private Rodada CriarProximaDaSequencia()
+    {
+        Rodada rodada = RodadasFixasDeTeste.Criar(posicaoNaSequencia);
+        posicaoNaSequencia = (posicaoNaSequencia + 1) % RodadasFixasDeTeste.Quantidade;
+        return rodada;
     }
 
     // ---------- Interface provisória, montada por código ----------
