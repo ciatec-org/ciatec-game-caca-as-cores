@@ -1,0 +1,350 @@
+{
+  "visualInspection": {
+    "method": "Inspeção pelo agente das capturas renderizadas no Chrome headless desta execução; não foi sessão manual em navegador gráfico.",
+    "screenshots": [
+      "rodada-1-aberta.png",
+      "rodada-2-aberta.png",
+      "rodada-3-aberta.png",
+      "rodada-3-selecao-incorreta.png",
+      "rodada-4-aberta.png",
+      "rodada-5-aberta.png",
+      "rodada-6-aberta.png"
+    ],
+    "observed": "Um cartão legível por tela, instruções correspondentes à sequência, formas e cores visíveis, Seleção incorreta na rodada 3 e resultado limpo nas aberturas seguintes. Sem tela vazia ou texto de instrução duplicado nas capturas.",
+    "passed": true
+  },
+  "testedCommit": "e232ccad0eed67cfdb9d2bef944f5b1727f26e87",
+  "date": "2026-11-13",
+  "unity": "6000.5.7f1 (017862109af0)",
+  "scene": "Assets/Game/Scenes/MainScene.unity",
+  "buildType": "Development / BuildPipeline.BuildPlayer / BuildTarget.WebGL",
+  "build": {
+    "result": "Succeeded",
+    "platform": "WebGL",
+    "errors": 0,
+    "warnings": 4,
+    "seconds": 996.8250387999999,
+    "messages": [
+      {
+        "type": "Warning",
+        "content": "Assets\\Game\\Scenes\\Scripts\\ControladorDaRodada.cs(68,13): warning CS0618: 'Object.FindFirstObjectByType<T>()' is obsolete: 'FindFirstObjectByType has been deprecated because it relies on instance ID ordering. Use FindAnyObjectByType instead, which does not depend on ordering.'"
+      },
+      {
+        "type": "Warning",
+        "content": "D:\\Temp\\ciatec-task39-webgl-20261113\\validacao\\Library\\Bee\\artifacts\\WebGL\\il2cppOutput\\cpp: [Unity.TextMeshPro] - System.Void TMPro.TMP_TextParsingUtilities::.cctor() - Method was given it's own cpp file because it is large and costly to compile"
+      },
+      {
+        "type": "Warning",
+        "content": "D:\\Temp\\ciatec-task39-webgl-20261113\\validacao\\Library\\Bee\\artifacts\\WebGL\\il2cppOutput\\cpp: [Unity.TextMeshPro] - System.Void TMPro.TextMeshPro::GenerateTextMesh() - Method was given it's own cpp file because it is large and costly to compile"
+      },
+      {
+        "type": "Warning",
+        "content": "D:\\Temp\\ciatec-task39-webgl-20261113\\validacao\\Library\\Bee\\artifacts\\WebGL\\il2cppOutput\\cpp: [Unity.TextMeshPro] - System.Void TMPro.TextMeshProUGUI::GenerateTextMesh() - Method was given it's own cpp file because it is large and costly to compile"
+      }
+    ]
+  },
+  "editMode": {
+    "result": "Passed",
+    "total": 65,
+    "passed": 65,
+    "failed": 0,
+    "skipped": 0,
+    "durationSeconds": 0.1238037,
+    "startTime": "2026-11-13 13:52:03Z",
+    "endTime": "2026-11-13 13:52:03Z"
+  },
+  "browser": {
+    "testedCommit": "e232ccad0eed67cfdb9d2bef944f5b1727f26e87",
+    "startedAt": "2026-11-13T14:19:20.110Z",
+    "mode": "Chrome headless; ANGLE SwiftShader; automated CDP mouse input; unmodified game runtime",
+    "viewport": {
+      "width": 1280,
+      "height": 720,
+      "deviceScaleFactor": 1
+    },
+    "rounds": [
+      {
+        "round": 1,
+        "instruction": "Encontre a estrela vermelha",
+        "selected": [
+          {
+            "object": "Estrela Vermelho",
+            "index": 1,
+            "result": "Acerto",
+            "timestamp": 1794579726827.583
+          }
+        ],
+        "attempts": 1,
+        "closed": "[Rodada] fechada: CORRETA (acerto de primeira) | tentativas: 1\n",
+        "scheduledAt": 1794579726828.379,
+        "nextInstruction": "Encontre o azul",
+        "openedAt": 1794579727336.234,
+        "delayMs": 507.85498046875
+      },
+      {
+        "round": 2,
+        "instruction": "Encontre o azul",
+        "selected": [
+          {
+            "object": "Triangulo Azul",
+            "index": 2,
+            "result": "Acerto",
+            "timestamp": 1794579728709.846
+          }
+        ],
+        "attempts": 1,
+        "closed": "[Rodada] fechada: CORRETA (acerto de primeira) | tentativas: 1\n",
+        "scheduledAt": 1794579728710.23,
+        "nextInstruction": "Encontre o quadrado verde",
+        "openedAt": 1794579729212.515,
+        "delayMs": 502.284912109375
+      },
+      {
+        "round": 3,
+        "instruction": "Encontre o quadrado verde",
+        "selected": [
+          {
+            "object": "Circulo Verde",
+            "index": 0,
+            "result": "SelecaoIncorreta",
+            "timestamp": 1794579730058.217
+          },
+          {
+            "object": "Quadrado Verde",
+            "index": 2,
+            "result": "Acerto",
+            "timestamp": 1794579731357.233
+          }
+        ],
+        "attempts": 2,
+        "noTransitionAfterErrorMs": 750,
+        "closed": "[Rodada] fechada: COM ERRO (acertou depois de errar) | tentativas: 2\n",
+        "scheduledAt": 1794579731357.69,
+        "nextInstruction": "Encontre o vermelho",
+        "openedAt": 1794579731868.525,
+        "delayMs": 510.8349609375
+      },
+      {
+        "round": 4,
+        "instruction": "Encontre o vermelho",
+        "selected": [
+          {
+            "object": "Quadrado Vermelho",
+            "index": 1,
+            "result": "Acerto",
+            "timestamp": 1794579732720.954
+          }
+        ],
+        "attempts": 1,
+        "closed": "[Rodada] fechada: CORRETA (acerto de primeira) | tentativas: 1\n",
+        "scheduledAt": 1794579732721.373,
+        "nextInstruction": "Encontre a estrela vermelha",
+        "openedAt": 1794579733228.723,
+        "delayMs": 507.349853515625
+      },
+      {
+        "round": 5,
+        "instruction": "Encontre a estrela vermelha",
+        "selected": [
+          {
+            "object": "Estrela Vermelho",
+            "index": 1,
+            "result": "Acerto",
+            "timestamp": 1794579734048.125
+          }
+        ],
+        "attempts": 1,
+        "closed": "[Rodada] fechada: CORRETA (acerto de primeira) | tentativas: 1\n",
+        "scheduledAt": 1794579734048.518,
+        "nextInstruction": "Encontre o azul",
+        "openedAt": 1794579734563.686,
+        "delayMs": 515.16796875
+      }
+    ],
+    "localPort": 49445,
+    "browser": "Chrome/157.0.8103.51",
+    "blockProbeMiss": {
+      "round": 1,
+      "pointer": {
+        "timestamp": 1794579727433.765,
+        "x": 560,
+        "y": 360
+      },
+      "scheduledAt": 1794579726828.379,
+      "openedAt": 1794579727336.234,
+      "msAfterSchedule": 605.385986328125,
+      "msBeforeNext": -97.531005859375,
+      "insideWait": false,
+      "noExtraAttempt": true
+    },
+    "blockedClick": {
+      "round": 2,
+      "pointer": {
+        "timestamp": 1794579728889.39,
+        "x": 800,
+        "y": 360
+      },
+      "scheduledAt": 1794579728710.23,
+      "openedAt": 1794579729212.515,
+      "msAfterSchedule": 179.159912109375,
+      "msBeforeNext": 323.125,
+      "insideWait": true,
+      "noExtraAttempt": true
+    },
+    "acceptedSelections": 6,
+    "transitions": 5,
+    "errorRound": 3,
+    "noAdditionalTransitionAfterMs": 800,
+    "runtime": [
+      {
+        "type": "log",
+        "text": "Initialize engine version: 6000.5.7f1 (017862109af0)\n",
+        "timestamp": 1794579571321.464
+      },
+      {
+        "type": "log",
+        "text": "Creating WebGL 2.0 context.",
+        "timestamp": 1794579571324.79
+      }
+    ],
+    "canvas": [
+      {
+        "width": 1280,
+        "height": 720,
+        "clientWidth": 1280,
+        "clientHeight": 720
+      }
+    ],
+    "errors": [],
+    "passed": true,
+    "finishedAt": "2026-11-13T14:22:16.068Z"
+  },
+  "runtimeWarnings": [
+    "The AudioContext was not allowed to start. It must be resumed (or created) after a user gesture on the page. https://developer.chrome.com/blog/autoplay/#web_audio",
+    "Additional Lights Cookie Format (GrayscaleHigh) is not supported by the platform. Falling back to 32-bit format (RGBA8 UNorm)\n",
+    "Shader 'Hidden/Universal Render Pipeline/Edge Adaptive Spatial Upsampling' is not supported (in 'Blit FSR Upscaling'). PostProcessing render passes will not execute.\n"
+  ],
+  "consoleTrace": [
+    {
+      "msSinceInitialization": 0,
+      "text": "Configuração carregada! O tempo limite da rodada é: 15 segundos.\n"
+    },
+    {
+      "msSinceInitialization": 152988.11,
+      "text": "[Rodada] tentativa 1: Estrela Vermelho (índice 1) → Acerto\n"
+    },
+    {
+      "msSinceInitialization": 152988.332,
+      "text": "[Rodada] fechada: CORRETA (acerto de primeira) | tentativas: 1\n"
+    },
+    {
+      "msSinceInitialization": 152988.906,
+      "text": "[Rodada] próxima rodada em 500 ms\n"
+    },
+    {
+      "msSinceInitialization": 153496.761,
+      "text": "[Rodada] nova rodada: Encontre o azul\n"
+    },
+    {
+      "msSinceInitialization": 154870.373,
+      "text": "[Rodada] tentativa 1: Triangulo Azul (índice 2) → Acerto\n"
+    },
+    {
+      "msSinceInitialization": 154870.593,
+      "text": "[Rodada] fechada: CORRETA (acerto de primeira) | tentativas: 1\n"
+    },
+    {
+      "msSinceInitialization": 154870.757,
+      "text": "[Rodada] próxima rodada em 500 ms\n"
+    },
+    {
+      "msSinceInitialization": 155373.042,
+      "text": "[Rodada] nova rodada: Encontre o quadrado verde\n"
+    },
+    {
+      "msSinceInitialization": 156218.744,
+      "text": "[Rodada] tentativa 1: Circulo Verde (índice 0) → SelecaoIncorreta\n"
+    },
+    {
+      "msSinceInitialization": 157517.76,
+      "text": "[Rodada] tentativa 2: Quadrado Verde (índice 2) → Acerto\n"
+    },
+    {
+      "msSinceInitialization": 157518.022,
+      "text": "[Rodada] fechada: COM ERRO (acertou depois de errar) | tentativas: 2\n"
+    },
+    {
+      "msSinceInitialization": 157518.217,
+      "text": "[Rodada] próxima rodada em 500 ms\n"
+    },
+    {
+      "msSinceInitialization": 158029.052,
+      "text": "[Rodada] nova rodada: Encontre o vermelho\n"
+    },
+    {
+      "msSinceInitialization": 158881.481,
+      "text": "[Rodada] tentativa 1: Quadrado Vermelho (índice 1) → Acerto\n"
+    },
+    {
+      "msSinceInitialization": 158881.676,
+      "text": "[Rodada] fechada: CORRETA (acerto de primeira) | tentativas: 1\n"
+    },
+    {
+      "msSinceInitialization": 158881.9,
+      "text": "[Rodada] próxima rodada em 500 ms\n"
+    },
+    {
+      "msSinceInitialization": 159389.25,
+      "text": "[Rodada] nova rodada: Encontre a estrela vermelha\n"
+    },
+    {
+      "msSinceInitialization": 160208.652,
+      "text": "[Rodada] tentativa 1: Estrela Vermelho (índice 1) → Acerto\n"
+    },
+    {
+      "msSinceInitialization": 160208.883,
+      "text": "[Rodada] fechada: CORRETA (acerto de primeira) | tentativas: 1\n"
+    },
+    {
+      "msSinceInitialization": 160209.045,
+      "text": "[Rodada] próxima rodada em 500 ms\n"
+    },
+    {
+      "msSinceInitialization": 160724.213,
+      "text": "[Rodada] nova rodada: Encontre o azul\n"
+    }
+  ],
+  "validationCopyRewrites": [
+    "Assets/Settings/DefaultVolumeProfile.asset",
+    "Assets/Settings/PC_RPAsset.asset",
+    "Assets/Settings/UniversalRenderPipelineGlobalSettings.asset",
+    "ProjectSettings/ProjectSettings.asset"
+  ],
+  "artifacts": [
+    {
+      "file": "index.html",
+      "bytes": 2304,
+      "sha256": "9f0c9884104b1452af6e60653a896343f6aa3d9fe2c976fefbd6a05d189a4566"
+    },
+    {
+      "file": "Build/WebGL.data",
+      "bytes": 12323217,
+      "sha256": "cd04f352554db3e6946f16714b32ec7dff46a7cb11be87e506faf3a896a5e5f8"
+    },
+    {
+      "file": "Build/WebGL.framework.js",
+      "bytes": 690870,
+      "sha256": "f793298aa868e3d8c064b490fa71be29829daa6e9367dc2a7961ca196f95e794"
+    },
+    {
+      "file": "Build/WebGL.loader.js",
+      "bytes": 58618,
+      "sha256": "18c533f3a4d54241a14492c932d834873bc184fe8bc3830cb954474d1be051ac"
+    },
+    {
+      "file": "Build/WebGL.wasm",
+      "bytes": 105387436,
+      "sha256": "32029b1692cc491776001ccd0a72582799d6647ed7a1200d3d29c36f47c6bce2"
+    }
+  ]
+}
