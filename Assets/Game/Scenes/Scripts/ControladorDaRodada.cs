@@ -18,7 +18,9 @@ using UnityEngine.UI;
 ///
 /// Depois do acerto, a rodada seguinte abre sozinha, passado o tempo de espera da configuração
 /// (500 ms, RT-38). Nesse intervalo a rodada antiga continua na tela, já fechada, e tocar num objeto
-/// não faz nada (RT-77): quem barra é <see cref="Rodada.Aberta"/>.
+/// não faz nada (RT-77): quem barra a regra é <see cref="Rodada.Aberta"/>, e a fileira deixa de
+/// receber o ponteiro, então as formas também não reagem visualmente (cor ao passar o ponteiro,
+/// ao pressionar ou ao ficar selecionada).
 ///
 /// PLACEHOLDER: as rodadas vêm de uma sequência fixa de teste (<see cref="RodadasFixasDeTeste"/>)
 /// até o gerador de rodadas existir; o Inspector escolhe só por qual delas a sessão começa.
@@ -48,6 +50,7 @@ public class ControladorDaRodada : MonoBehaviour
     public Rodada RodadaAtual { get; private set; }
 
     private RectTransform fileira;
+    private CanvasGroup grupoDaFileira;
     private TextMeshProUGUI textoInstrucao;
     private TextMeshProUGUI textoResultado;
 
@@ -92,6 +95,9 @@ public class ControladorDaRodada : MonoBehaviour
 
         if (fileira == null)
             CriarInterface();
+
+        // A rodada nova nasce aberta: as formas voltam a receber o ponteiro.
+        grupoDaFileira.blocksRaycasts = true;
 
         RodadaAtual = rodada;
         foreach (Transform filho in fileira)
@@ -145,6 +151,9 @@ public class ControladorDaRodada : MonoBehaviour
         {
             string classificacao = RodadaAtual.Correta ? "CORRETA (acerto de primeira)" : "COM ERRO (acertou depois de errar)";
             Debug.Log($"[Rodada] fechada: {classificacao} | tentativas: {RodadaAtual.Tentativas}");
+
+            // Rodada encerrada: as formas deixam de reagir ao ponteiro até a rodada nova abrir (RT-77).
+            BloquearFormas();
         }
 
         // RT-38: depois do acerto a rodada seguinte abre sozinha, sem outra ação da criança.
@@ -152,6 +161,20 @@ public class ControladorDaRodada : MonoBehaviour
             trocaPendente = StartCoroutine(AbrirProximaRodadaDepoisDaEspera());
 
         SelecaoAvaliada?.Invoke(indice, resultado);
+    }
+
+    /// <summary>
+    /// Fecha a fileira para o ponteiro: nenhuma forma recebe passar, pressionar ou clicar, então nenhuma
+    /// reação visual do Button dispara. Não usa Button.interactable = false de propósito: ele aplicaria a
+    /// cor de desabilitado, e as formas ficariam esmaecidas logo depois do acerto.
+    /// </summary>
+    private void BloquearFormas()
+    {
+        grupoDaFileira.blocksRaycasts = false;
+
+        // Sem isso, a forma clicada ficaria com a cor de "selecionada" até a rodada nova abrir.
+        if (EventSystem.current != null)
+            EventSystem.current.SetSelectedGameObject(null);
     }
 
     private IEnumerator AbrirProximaRodadaDepoisDaEspera()
@@ -194,9 +217,10 @@ public class ControladorDaRodada : MonoBehaviour
         escala.matchWidthOrHeight = 0.5f;
 
         // Fileira: ocupa a tela e centraliza as formas.
-        var fileiraGo = new GameObject("Fileira", typeof(RectTransform), typeof(HorizontalLayoutGroup));
+        var fileiraGo = new GameObject("Fileira", typeof(RectTransform), typeof(HorizontalLayoutGroup), typeof(CanvasGroup));
         fileiraGo.transform.SetParent(canvasGo.transform, false);
         fileira = (RectTransform)fileiraGo.transform;
+        grupoDaFileira = fileiraGo.GetComponent<CanvasGroup>();
         Esticar(fileira);
 
         var layout = fileiraGo.GetComponent<HorizontalLayoutGroup>();
