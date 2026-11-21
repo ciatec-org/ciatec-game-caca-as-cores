@@ -1,3 +1,24 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:042db6c55de2c7435da9e658282e56fd1c8fafcdc2be8052b79a2eed3c7b31c3
-size 557
+{
+    "name": "CacaAsCores.Game.Tests.EditMode",
+    "rootNamespace": "",
+    "references": [
+        "UnityEngine.TestRunner",
+        "UnityEditor.TestRunner",
+        "CacaAsCores.Game"
+    ],
+    "includePlatforms": [
+        "Editor"
+    ],
+    "excludePlatforms": [],
+    "allowUnsafeCode": false,
+    "overrideReferences": true,
+    "precompiledReferences": [
+        "nunit.framework.dll"
+    ],
+    "autoReferenced": false,
+    "defineConstraints": [
+        "UNITY_INCLUDE_TESTS"
+    ],
+    "versionDefines": [],
+    "noEngineReferences": false
+}

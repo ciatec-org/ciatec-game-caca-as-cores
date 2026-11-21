@@ -1,3 +1,102 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:1ccc1640973b320085c67ac4d41e2b69c9b75c7ac909427b1f44c241c5674b54
-size 2229
+
+using UnityEngine;
+
+public class GerenciadorDeTelas : MonoBehaviour
+{
+    [Header("Painéis da interface")]
+    [SerializeField] private GameObject painelInicio;
+    [SerializeField] private GameObject painelConfiguracoes;
+    [SerializeField] private GameObject painelFases;
+    [SerializeField] private GameObject painelJogo;
+
+    private void Start()
+    {
+        MostrarTela("Inicio");
+    }
+
+    public void MostrarTela(string nomeTela)
+    {
+        GameObject telaEscolhida = null;
+
+        switch (nomeTela)
+        {
+            case "Inicio":
+                telaEscolhida = painelInicio;
+                break;
+
+            case "Configuracoes":
+                telaEscolhida = painelConfiguracoes;
+                break;
+
+            case "Fases":
+                telaEscolhida = painelFases;
+                break;
+
+            case "Jogo":
+                telaEscolhida = painelJogo;
+                break;
+
+            default:
+                Debug.LogWarning(
+                    $"Tela '{nomeTela}' não reconhecida.",
+                    this
+                );
+                return;
+        }
+
+        if (telaEscolhida == null)
+        {
+            Debug.LogWarning(
+                $"O painel da tela '{nomeTela}' não foi atribuído.",
+                this
+            );
+            return;
+        }
+
+        // Esconde todas as telas.
+
+        if (painelInicio != null)
+            painelInicio.SetActive(false);
+
+        if (painelConfiguracoes != null)
+            painelConfiguracoes.SetActive(false);
+
+        if (painelFases != null)
+            painelFases.SetActive(false);
+
+        if (painelJogo != null)
+            painelJogo.SetActive(false);
+
+        // Mostra somente a tela solicitada.
+        telaEscolhida.SetActive(true);
+    }
+
+    // Métodos para conectar aos botões pelo Inspector.
+
+    public void AbrirInicio()
+    {
+        MostrarTela("Inicio");
+    }
+
+    public void AbrirConfiguracoes()
+    {
+        MostrarTela("Configuracoes");
+    }
+
+    public void AbrirFases()
+    {
+        MostrarTela("Fases");
+    }
+
+    public void AbrirJogo()
+    {
+        MostrarTela("Jogo");
+    }
+
+
+    public void TestarNomeInvalido()
+    {
+        MostrarTela("Inventario");
+    }
+
+}

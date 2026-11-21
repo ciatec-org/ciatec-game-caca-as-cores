@@ -1,3 +1,34 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:a832cd0a9f5cf9d8623f9b00661715cd6f219716f670f96241920a6d8df2e134
-size 921
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b194e24aa02d35ffb956a41a975e9769, type: 3}
+  m_Name: ConfiguracaoDoJogo
+  m_EditorClassIdentifier: Assembly-CSharp::ConfiguracaoDoJogo
+  corVermelho: {fileID: 11400000, guid: 0ba577b47f3d1af1d916d9dd05fa99b3, type: 2}
+  corAzul: {fileID: 11400000, guid: 9a2985ade47e6d6d88dea858da75470f, type: 2}
+  corVerde: {fileID: 11400000, guid: 1cb4ff26a6768d446ba2186bcb42c6a3, type: 2}
+  corMarrom: {fileID: 11400000, guid: a6a2482d88663e2f291fb2f98396949e, type: 2}
+  corLaranja: {fileID: 11400000, guid: 9efee86a4f6c286b282f18d537b3a89f, type: 2}
+  corRoxo: {fileID: 11400000, guid: 356d11af750f29017b9abc7b556db17a, type: 2}
+  spriteCirculo: {fileID: 21300000, guid: bb4024f2b2037a1fa93773744f02404d, type: 3}
+  spriteQuadrado: {fileID: 21300000, guid: 4fc0a452c612cd09fb94b317007dfa1d, type: 3}
+  spriteTriangulo: {fileID: 21300000, guid: 3927abfc48276c491a09fcaacba4f6df, type: 3}
+  spriteEstrela: {fileID: 21300000, guid: 3118c5beb32d2b324bcd7efdcb4411a2, type: 3}
+  spriteRetangulo: {fileID: 21300000, guid: d6c47f4aedec155dab7188e7cf8d031d, type: 3}
+  tempoCrescimentoAcerto: 0.3
+  tempoBrilhosAcerto: 0.6
+  esperaTrocaRodada: 0.5
+  tempoSaidaTroca: 0.25
+  tempoEntradaTroca: 0.25
+  tempoAnimacaoErro: 0.4
+  tempoLimiteRodada: 15
+  tempoPulsoAlvo: 1
+  tempoRespostaBotao: 0.08

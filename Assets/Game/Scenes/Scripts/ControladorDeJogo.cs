@@ -1,3 +1,18 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:dc6964a2d5d3345d0d7dfff1111aa9aeee34d2e7aa6eb6f8e94446bf2b94b50e
-size 697
+using UnityEngine;
+
+public class ControladorDeJogo : MonoBehaviour
+{
+    public ConfiguracaoDoJogo configJogo;
+
+    void Start()
+    {
+        if (configJogo == null)
+        {
+            Debug.LogWarning("Falta a ConfiguracaoDoJogo no ControladorDeJogo!", this);
+            return;
+        }
+
+        // Imprime um dos tempos no Console para provar que o asset está sendo lido.
+        Debug.Log($"Configuração carregada! O tempo limite da rodada é: {configJogo.tempoLimiteRodada} segundos.");
+    }
+}
