@@ -1,6 +1,3 @@
-﻿<Solution>
-  <Project Path="CacaAsCores.Game.csproj" />
-  <Project Path="Assembly-CSharp-Editor.csproj" />
-  <Project Path="Assembly-CSharp.csproj" />
-  <Project Path="CacaAsCores.Game.Tests.EditMode.csproj" />
-</Solution>
+version https://git-lfs.github.com/spec/v1
+oid sha256:51eddff3b2dfd42f7c7cdda7f110aa492d5bcef5f760c75cee75cd4f9f0e622a
+size 232
